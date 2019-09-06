@@ -256,96 +256,265 @@ function jI(mr)
 end
 
 
-function jJ(mu,mw,mx,my)local mz=
-mu if not mz.cB then mz.cB=0 end local
-mA={q=mz,r=mw,s=mx,t=my,u={},w=
-{},x={},y={},z=mz.z,A=function(
-mB,mC)mB.u[mC]=mC.aY;if iY==mB then
-jX()end end,B=function(mD,mE)mD.
-z=mD.z-mE if mD.z<0 then mD.z=0 elseif
-mD.z>mD.q.z then mD.z=mD.q.z end end
-,C=function(mF)local mG={}for mH,
-mI in pairs(mF.u)do if mH.bi then table
-.insert(mG,mH)end end for mJ=1,#mG
-do mF.u[mG[mJ]]=nil end end,D=function
-(mK)for mL,mM in pairs(mK.u)do if mM
-==1 then mK.u[mL]=nil else if mM>0 then
-mK.u[mL]=mM-1 end end end end,E=function
-(mN,mO)return mN.u[mO]~=nil end,F
-=function(mP)if mP:E(kS.aT)then return
-false else return jI(ro:Z(mP))end end
-,G=function(mQ)local mR=0 if mQ:E(
-kS.bm)then mR=1 end return mQ.q.G+mR
-end}jH(mA)return mA end function jK
-(mS)local mT=kZ[mS]local mU,mW=kg
-(mT.dR,mT.dS)iZ=nil ja=nil kd(nil
-)local mY=mT.ec for nb=1,#mY,3 do table
-.insert(mU,jJ(mY[nb],mY[nb+1],mY
-[nb+2],0))end local mY=mT.ed for nc
-=1,#mY,3 do table.insert(mU,jJ(mY
-[nc],mY[nc+1],mY[nc+2],1))end local
-mZ={}if mT.L then for nd,ne in pairs(
-mT.L)do mZ[nd]=ne end end local na={
-H=mT.H,I=0,J=mS,K=mU,L=mZ,M=function
-(nf)for ng=1,#nf.K do local nh=nf.K
-[ng]if nh.t==0 then return false end
-end return true end,N=function(ni,
-nj,nk)for nl=1,#ni.K do local nm=ni
-.K[nl]if nm.r==nj and nm.s==nk then
-return nm end end return nil;end,O=function
-(nn,no,np)return mW[jr(no,np)]end
-,P=function(nq)for nr=#nq.K,1,-1
-do local ns=nq.K[nr]if ns.z and ns.z
-<=0 then table.remove(nq.K,nr)end
-end end,Q=function(nt)table.sort
-(nt.K,function(nu,nw)return nu.s
-<nw.s end)end,R=function(nx,ny,nz
-,nA,nB)local nC=jJ(ny,nz,nA,nB)table
-.insert(nx.K,nC)return nC end,S=function
-(nD,nE,nF,nG,nH)local nI=nD:N(nF
-,nG)if not nI then return nD:R(nE,nF
-,nG,nH)end for nJ=math.max(nF-1,0
-),math.min(nF+1,10)do for nK=math
-.max(nG-1,0),math.min(nG+1,7)do
-local nL=nD:N(nJ,nK)if not nL then return
-nD:R(nE,nJ,nK,nH)end end end return
-nil end,T=function(nM,nN,nO,nP)for
-nQ,nR in ipairs(nM.K)do if nN==nR then
-local nS=jJ(nO,nN.r,nN.s,nP);nM.
-K[nQ]=nS return end end end,U=function
-(nT,nU)local nW={}for nX=1,#nT.K do
-local nY=nT.K[nX]if nY.t==nU and nY
-:F()then table.insert(nW,nY)end end
-return nW end,W=function(nZ,oa)local
-ob=0 for oc=1,#nZ.K do local od=nZ.K
-[oc]if od.q==oa then ob=ob+1 end end
-return ob end,X=function(oe,of,og
-,oh)for oi=1,#oe.K do local oj=oe.K
-[oi]if of~=oj and oj.t==of.t then if
-jR(of,nil,oj.r,oj.s)then oj:A(oh
-)end end end end,Y=function(ok)for
-ol=1,#ok.K do ok.K[ol]:C()end for om
-=1,#ok.K do local on=ok.K[om]for oo
-=1,#on.q.cx do local op=on.q.cx[oo
-]if op.bN then ok:X(on,on.G,op.bN)
-end end end end,Z=function(oq,os)local
-ot={}for ou=#os.q.cx,1,-1 do local
-ow=os.q.cx[ou]if(not os.y[ow])or
-(os.y[ow]==0)then for ox=0,10 do for
-oy=0,7 do local oz=oq:N(ox,oy)if ow
-.bu(os,oz,ox,oy)then if not ot[jr(
-ox,oy)]then ot[jr(ox,oy)]={}end table
-.insert(ot[jr(ox,oy)],ow)end end
-end end end return ot end}na:Q()na:Y
-()kU(mT.dT,nil,ji.b)music((mS+1
-)%2)return na end function jL(oA,oB
-,oC,oD)return jl(oA.r,oA.s,oC,oD
-)end function jM(oE,oF,oG,oH)local
-oI=ro:O(oG,oH)return oI==0 or oI==
-2 or oI==128 end function jN(oJ,oK,oL
-,oM)return oK==nil end function jO(
-oN,oO,oP,oQ)return oO and oO.q==kY
-.cG end 
+function jJ(mu,mw,mx,my)
+  local mz=mu 
+  if not mz.cB then 
+    mz.cB=0 
+  end 
+  local mA={
+            q=mz,
+            r=mw,
+            s=mx,
+            t=my,
+            u={},
+            w={},
+            x={},
+            y={},
+            z=mz.z,
+            A=function(mB,mC)
+              mB.u[mC]=mC.aY;
+              if iY==mB then 
+                jX()
+              end 
+            end, 
+            B=function(mD,mE)
+              mD.z=mD.z-mE 
+              if mD.z<0 then 
+                mD.z=0 
+              elseif mD.z>mD.q.z then 
+                mD.z=mD.q.z 
+              end 
+            end,
+            C=function(mF)
+              local mG={}
+              for mH,mI in pairs(mF.u) do 
+                if mH.bi then 
+                  table.insert(mG,mH)
+                end 
+              end 
+              for mJ=1,#mG do 
+                mF.u[mG[mJ]]=nil 
+              end 
+            end,
+            D=function(mK)
+              for mL,mM in pairs(mK.u) do 
+                if mM==1 then 
+                  mK.u[mL]=nil 
+                else 
+                  if mM>0 then 
+                    mK.u[mL]=mM-1 
+                  end 
+                end 
+              end 
+             end,
+            E=function(mN,mO)
+              return mN.u[mO]~=nil 
+            end,
+            F=function(mP)
+              if mP:E(kS.aT) then 
+                return false 
+              else 
+                return jI(ro:Z(mP))
+              end 
+            end,
+            G=function(mQ)
+              local mR=0 
+              if mQ:E(kS.bm)then 
+                mR=1 
+              end 
+              return mQ.q.G+mRend
+            }
+              
+              jH(mA)
+              return mA 
+            end 
+            
+            
+            
+            function jK(mS)
+              local mT=kZ[mS]
+              local mU,mW=kg(mT.dR,mT.dS)
+              iZ=nil 
+              ja=nil 
+              kd(nil)
+              local mY=mT.ec 
+              for nb=1,#mY,3 do 
+                table.insert(mU,jJ(mY[nb],mY[nb+1],mY[nb+2],0))end 
+                local mY=mT.ed 
+                for nc=1,#mY,3 do 
+                  table.insert(mU,jJ(mY[nc],mY[nc+1],mY[nc+2],1))end 
+                  local mZ={}
+                  if mT.L then 
+                    for nd,ne in pairs(mT.L)do 
+                      mZ[nd]=ne 
+                    end 
+                  end 
+                  local na={
+                            H=mT.H,
+                            I=0,
+                            J=mS,
+                            K=mU,
+                            L=mZ,
+                            M=function(nf)
+                              for ng=1,#nf.K do 
+                                local nh=nf.K[ng]
+                                if nh.t==0 then
+                                  return false 
+                                end
+                              end 
+                              return true 
+                            end,
+                            N=function(ni,nj,nk)
+                              for nl=1,#ni.K do 
+                                local nm=ni.K[nl]
+                                if nm.r==nj and nm.s==nk then
+                                  return nm end 
+                                end 
+                                return nil;
+                              end,
+                              O=function(nn,no,np)
+                                return mW[jr(no,np)]
+                              end,
+                              P=function(nq)
+                                for nr=#nq.K,1,-1 do 
+                                  local ns=nq.K[nr]
+                                  if ns.z and ns.z<=0 then 
+                                    table.remove(nq.K,nr)end
+                                  end 
+                                end,
+                                Q=function(nt)
+                                  table.sort(nt.K,function(nu,nw)return nu.s<nw.s end)
+                                end,
+                                R=function(nx,ny,nz,nA,nB)
+                                  local nC=jJ(ny,nz,nA,nB)
+                                  table.insert(nx.K,nC)
+                                  return nC 
+                                end,
+
+                                S=function(nD,nE,nF,nG,nH)
+                                  local nI=nD:N(nF,nG)
+                                  if not nI then 
+                                    return nD:R(nE,nF,nG,nH)
+                                  end 
+                                  for nJ=math.max(nF-1,0),math.min(nF+1,10) do
+                                    for nK=math.max(nG-1,0),math.min(nG+1,7) do
+                                      local nL=nD:N(nJ,nK)
+                                      if not nL then 
+                                        return nD:R(nE,nJ,nK,nH)
+                                      end 
+                                    end 
+                                  end 
+                                  return nil 
+                                end,
+
+                                T=function(nM,nN,nO,nP)
+                                  for nQ,nR in ipairs(nM.K)do 
+                                    if nN==nR then
+                                      local nS=jJ(nO,nN.r,nN.s,nP);
+                                      nM.K[nQ]=nS 
+                                      return 
+                                    end 
+                                  end 
+                                end,
+
+                                U=function(nT,nU)
+                                  local nW={}
+                                    for nX=1,#nT.K do
+                                      local nY=nT.K[nX]
+                                        if nY.t==nU and nY:F() then 
+                                          table.insert(nW,nY)
+                                        end 
+                                    end
+                                    return nW 
+                                end,
+                                    
+                                W=function(nZ,oa)
+                                  local ob=0 
+                                  for oc=1,#nZ.K do 
+                                    local od=nZ.K[oc]
+                                    if od.q==oa then 
+                                      ob=ob+1 
+                                    end 
+                                  end
+                                  return ob 
+                                end,
+                                X=function(oe,of,og,oh)
+                                  for oi=1,#oe.K do 
+                                    local oj=oe.K[oi]
+                                    if of~=oj and oj.t==of.t then 
+                                      if jR(of,nil,oj.r,oj.s) then 
+                                        oj:A(oh)
+                                      end 
+                                    end 
+                                  end 
+                                end,
+                                Y=function(ok)
+                                  for ol=1,#ok.K do 
+                                    ok.K[ol]:C()
+                                  end 
+                                  for om=1,#ok.K do 
+                                    local on=ok.K[om]
+                                    for oo=1,#on.q.cx do 
+                                      local op=on.q.cx[oo]
+                                      if op.bN then 
+                                        ok:X(on,on.G,op.bN)
+                                      end 
+                                    end 
+                                  end 
+                                end,
+                                Z=function(oq,os)
+                                  local ot={}
+                                  for ou=#os.q.cx,1,-1 do 
+                                    local ow=os.q.cx[ou]
+                                    if (not os.y[ow]) or (os.y[ow]==0) then 
+                                      for ox=0,10 do 
+                                        for oy=0,7 do 
+                                          local oz=oq:N(ox,oy)
+                                          if ow.bu(os,oz,ox,oy)then 
+                                            if not ot[jr(ox,oy)]then 
+                                              ot[jr(ox,oy)]={}
+                                            end 
+                                            table.insert(ot[jr(ox,oy)],ow)
+                                          end 
+                                        end
+                                      end 
+                                    end 
+                                  end 
+                                  return ot 
+                                end
+                              }
+
+                  na:Q()
+                  na:Y()
+                  kU(mT.dT,nil,ji.b)
+                  music((mS+1)%2)
+                  return na 
+                end 
+
+
+
+
+
+
+function jL(oA,oB,oC,oD)
+  return jl(oA.r,oA.s,oC,oD)
+end 
+  
+
+
+function jM(oE,oF,oG,oH)
+    local oI=ro:O(oG,oH)
+    return oI==0 or oI==2 or oI==128 
+end 
+
+function jN(oJ,oK,oL,oM)
+  return oK==nil 
+end 
+
+
+function jO(oN,oO,oP,oQ)
+  return oO and oO.q==kY.cG 
+end 
 
 function jP(oR,oS,oT,oU)
   return oS and oS.q==kY.cM 
