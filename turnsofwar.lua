@@ -45,123 +45,123 @@ function jj(lb,lc)
 end
 
 function jk(ld,le)
-  for lf=1,#ld do 
-    if ld[lf]==le then 
-      return true 
-    end 
-  end 
-  return false 
-end 
+  for lf=1,#ld do
+    if ld[lf]==le then
+      return true
+    end
+  end
+  return false
+end
 
 
 function jl(lg,lh,li,lj)
   return math.abs(lg-li)<=1 and math.abs(lh-lj)<=1 and(lg~=li or lh~=lj)
-end 
+end
 
 
 function jm(lk,ll,lm,ln)
-  local lo=lk-lm 
-  local lp=ll-ln 
+  local lo=lk-lm
+  local lp=ll-ln
   return math.sqrt(lo*lo+lp*lp)
 end
 
 
 function jn(lq)
-  if type(lq)=="number" then 
+  if type(lq)=="number" then
     return math.random(0,lq)
   else return math.random(lq.min,lq.max)
-  end 
-end 
+  end
+end
 
 function jo(lr,ls,lt)
   return ls*lt+lr*(1-lt)
-end 
+end
 
 function jp(...)
   local lu = table.pack(...)
   return function(...)
-    for lw=1,#lu do 
-      if not lu[lw](...) then 
-        return false 
-      end 
-    end 
-    return true 
-  end 
-end 
+    for lw=1,#lu do
+      if not lu[lw](...) then
+        return false
+      end
+    end
+    return true
+  end
+end
 
 
 function jq(lx,ly,lz)
   return ly>=lx.r and lz>=lx.s and ly<(lx.r+lx.ac) and lz<(lx.s+lx.ad)
-end 
+end
 
 
 function jr(lA,lB)
-  return lA+lB*20 
-end 
+  return lA+lB*20
+end
 
 
 
 function js(lC)
-  return lC%20,lC//20 
-end 
+  return lC%20,lC//20
+end
 
 function jt(lD,lE,lF)
   if type(lD)=="string" then
     print(lD,lE,lF,15,false,1,true)
-  else 
-    for lG=1,#lD,2 do 
+  else
+    for lG=1,#lD,2 do
       local lH=lD[lG+1]
       local lI=lD[lG]
-      local lJ 
+      local lJ
       if lI<0 then
         spr(lH,lE,lF-1,0-lI)
-        lJ=8 
+        lJ=8
       else lJ=print(lH,lE,lF,lI,false,1,true)
-      end 
-      lE=lE+lJ 
-    end 
-  end 
-end 
+      end
+      lE=lE+lJ
+    end
+  end
+end
 
 
 function ju(lK)
-  return lK 
-end 
+  return lK
+end
 
 
 
 function jw(lL)
   local lM=1.70158;
   return lL*lL*((lM+1)*lL-lM)
-end 
+end
 
 
 function jx(lN)
-  return lN*lN 
-end 
+  return lN*lN
+end
 
 
 
 function jy(lO)
-  lO=lO*2 
-  if(lO)<1 then 
+  lO=lO*2
+  if(lO)<1 then
     return 0.5*lO*lO;
-  else 
+  else
     return -0.5*((lO-1)*(lO-3)-1);
-  end 
-end 
+  end
+end
 
 
 
 function jz(lP)
-  if lP==0 then 
-    return 0 
-  end 
-  if lP==1 then 
-    return 1 
-  end 
+  if lP==0 then
+    return 0
+  end
+  if lP==1 then
+    return 1
+  end
   return math.pow(2,-10*lP)*math.sin((lP-0.1)*5*math.pi)+1;
-end 
+end
 
 
 
@@ -169,88 +169,90 @@ end
 
 function jA(lQ)
   lQ:j(lQ.p,lQ.o)
-  lQ.n=lQ.n+1 
-  local lR=lQ.n/lQ.k 
+  lQ.n=lQ.n+1
+  local lR=lQ.n/lQ.k
   lQ.p=lQ.l(lR)
-  lQ.o=lQ.k*lQ.p 
-  if jB(lQ) then 
+  lQ.o=lQ.k*lQ.p
+  if jB(lQ) then
     if lQ.m then lQ:m()
-    end 
-    return false 
-  end 
-  return true 
+    end
+    return false
+  end
+  return true
 end
 
 
 
 function jB(lS)
-  return lS.n>=lS.k 
+  return lS.n>=lS.k
 end
 
 
 
 function jC(lT,lU,lW,lX)
   return{j=lT,k=lU,l=lW,m=lX,n=0,o=0,p=0}
-end 
+end
 
 
 function jD(lY,lZ,ma)
-  return jC(function(mb,mc,md)
-    if not jB(lY)then 
+  return jC(
+    -- function(mb,mc,md)
+    function()
+    if not jB(lY)then
       jA(lY)
-    end 
-    if not jB(lZ)then 
+    end
+    if not jB(lZ)then
       jA(lZ)
     end
   end, math.max(lY.k,lZ.k),ju,ma)
 end
 function jE(me,mf,mg)
-  return jC(function(mh,mi,mj)
-    if not jB(me)then 
+  -- return jC(function(mh,mi,mj)
+  return jC(function()
+    if not jB(me)then
       jA(me)
-    end 
-    if jB(me)and not jB(mf)then 
+    end
+    if jB(me)and not jB(mf)then
       jA(mf)
-    end 
+    end
   end,me.k+mf.k,ju,mg)
-end 
+end
 
 function jF()
   local mk=pmem(0)
-  if mk==0 then 
-    mk=1 
-  end 
-  return mk 
-end 
+  if mk==0 then
+    mk=1
+  end
+  return mk
+end
 
 function jG(ml)
-  if pmem(0)<ml then 
+  if pmem(0)<ml then
     pmem(0,ml)
-  end 
-end 
+  end
+end
 
 function jH(mm)
-  for mn,mo in pairs(mm.y) do 
-    if mo>0 then 
-      mm.y[mn]=mo-1 
-    end 
-  end 
+  for mn,mo in pairs(mm.y) do
+    if mo>0 then
+      mm.y[mn]=mo-1
+    end
+  end
   mm.x={}
-  if mm.q.x then 
-    for mp,mq in pairs(mm.q.x)do 
-      mm.x[mp]=mq 
-    end 
-  end 
+  if mm.q.x then
+    for mp,mq in pairs(mm.q.x)do
+      mm.x[mp]=mq
+    end
+  end
   mm:D()
-end 
-
+end
 
 
 function jI(mr)
-  for ms,mt in pairs(mr)do 
-    return true 
-  end 
-  return false 
+  for ms,mt in pairs(mr) do
+    return true
+  end
+  return false
 end
 
 
@@ -391,135 +393,268 @@ pL=1 end spr(pG.q.aX,pG.r*16+pH,pG
 .s*16+pI,pG.q.bg or 14,1,pL,0,2,2
 )local pM=pG.q.aU if pG.z then pM=pM
 .." "..pG.z.."/"..pG.q.z end ka(pG
-.r*16,pG.s*16,16,16,pM)end function
-ka(pQ,pR,pS,pT,pU)table.insert(
-jb,{r=pQ,s=pR,ac=pS,ad=pT,ae=pU
-})end function kb(pW,pX,pY,pZ,qa)
-local qb=4+print(pY,0,-10,15,false
-,1,true)local qc=8+2 rect(pW,pX,qb
-,qc,6)line(pW,pX,pW+qb-2,pX,12)
-line(pW,pX,pW,pX+qc-2,12)line(pW
-+1,pX+qc-1,pW+qb-1,pX+qc-1,4)line
-(pW+qb-1,pX+1,pW+qb-1,pX+qc-1,4
-)print(pY,pW+2,pX+2,15,false,1,
-true)ka(pW,pX,qb,qc,pZ)table.insert
-(jc,{r=pW,s=pX,ac=qb,ad=qc,ae=pY
-,af=qa})end function kc(qd,qe,qf)
-print(qd.q.aU,qe,qf,15,false,1,
-false)spr(qd.q.aX,qe,qf+8,qd.q.
-bg or 14,1,0,0,2,2)if qd.z then print
-(qd.z.."/"..qd.q.z,qe+17,qf+8,6
-,false,1,true)ka(qe+17,qf+8,15,
-6,"Health points left and total"
-)end if qd.q.cy then print(qd.q.cy.
-min.."-"..qd.q.cy.max,qe+17,qf+
-14,3,false,1,true)ka(qe+17,qf+14
-,15,6,"Attack range, min and max"
-)end if qd.q.G then print(qd:G(),qe
-+17,qf+20,5,false,1,true)ka(qe+
-17,qf+20,15,6,"Distance of ranged attack or magic"
-)end qf=qf+25 for qg=1,#qd.q.cx do local
-qh=qd.q.cx[qg]local qi=qh.aZ local
-qj={-1,qh.bw,15," "..qh.aU}if qd
-.x then local ql=qd.x[qh]if ql then table
-.insert(qj,14)table.insert(qj," +"
-..ql)qi=qi.." - "..ql.." free (doesn't spend unit)"
-end end local qk=qh.y if qk then local
-qm=qd.y[qh]or 0 if qm==0 then table.
-insert(qj,14)table.insert(qj," "
-..qm.."/"..qk)qi=qi.." - Cooldown: Ready"
-else table.insert(qj,6)table.insert
-(qj," "..qm.."/"..qk)qi=qi.." - Cooldown: "
-..qm.." turns left"end end jt(qj,
-qe,qf+1)ka(qe,qf+1,60,8,qi)qf=qf
-+9 end qf=qf+8 for qn,qo in pairs(qd.
-u)do qf=qf+7 spr(qn.aX,qe-1,qf-2,
-qn.bg or 14)local qp=qo>0 and qo or"A"
-jt({15,qn.aU,14," ["..qp.."]"},
-qe+7,qf,15)ka(qe+7,qf,60,8,qn.aZ
-..(qo>0 and""or" (area effect)")
-)end qf=90 if qd.t==0 then kb(qe,qf,
-"Pass","Don't use this unit this turn."
-,function()qd:A(kS.aT)sfx(2,50,
-20)kP()end)end end function kd(qq)
-iY=qq iW=0 jX();end function ke(qr,
-qs,qt)if qr<0 or qs<0 or qr>21 or qs>15
-then return qt else return mget(qr,qs
-)end end function kf(qu,qw,qx)local
-qy=0 if ke(qu-1,qw-1,qx)~=qx then qy
-=qy+1 end if ke(qu,qw-1,qx)~=qx then
-qy=qy+2 end if ke(qu+1,qw-1,qx)~=qx
-then qy=qy+4 end if ke(qu+1,qw,qx)~=
-qx then qy=qy+8 end if ke(qu+1,qw+1,
-qx)~=qx then qy=qy+16 end if ke(qu,qw
-+1,qx)~=qx then qy=qy+32 end if ke(qu
--1,qw+1,qx)~=qx then qy=qy+64 end if
-ke(qu-1,qw,qx)~=qx then qy=qy+128
-end return qy end function kg(qz,qA)
-local qB={}local qC={}for qF=0,10 do
-for qG=0,7 do local qH=mget(qF+qz,qG
-+qA)if qH>=32 and qH<128 then for qI,
-qJ in pairs(kY)do if qJ.aX==qH then table
-.insert(qB,jJ(qJ,qF,qG,-1))end end
-qH=0 end if qH<128 then mset(qF*2,qG
-*2,qH)mset(qF*2+1,qG*2,qH)mset(
-qF*2,qG*2+1,qH)mset(qF*2+1,qG*2
-+1,qH)else mset(qF*2,qG*2,qH)mset
-(qF*2+1,qG*2,qH+1)mset(qF*2,qG*
-2+1,qH+16)mset(qF*2+1,qG*2+1,qH
-+17)end qC[jr(qF,qG)]=qH end end local
-qD={}for qK=0,21 do for qL=0,15 do local
-qM=mget(qK,qL)if qM>=1 and qM<3 then
-local qN=kf(qK,qL,qM)if qN>0 then table
-.insert(qD,{r=qK,s=qL,q=qN})end
-end end end local qE={[1]=11,[3]=1,
-[4]=10,[6]=1,[7]=1,[12]=4,[16]=
-8,[24]=4,[28]=4,[31]=2,[48]=6,[
-64]=9,[96]=6,[112]=6,[124]=7,[129
-]=3,[192]=3,[193]=3,[199]=0,[241
-]=5,}for qO=1,#qD do local qP=qD[qO
-]if qE[qP.q]then local qQ=mget(qP.
-r,qP.s)local qR=32 if qQ==1 then qR=
-240 elseif qQ==2 then qR=224 end mset
-(qP.r,qP.s,qE[qP.q]+qR)end end for
-qS=0,21 do for qT=0,15 do local qU=mget
-(qS,qT)if qU<16 and math.random(100
-)>95 then mset(qS,qT,qU+16)end end
-end return qB,qC end function TIC()qW
-,qX,qY,qZ,ra=mouse()rb=qY and not
-re rc=qZ and not rf rd=ra and not rg re=
-qY rf=qZ rg=ra if iT==0 then kj()else
-kk()end end function kh(rh,ri,rj,rk
-)local rl=print(rh,0,-10,rk)print
-(rh,ri-(rl//2),rj,rk)end function
-ki(rm,rn)kh("CHOOSE LEVEL:",rm+
-90,rn,15)kh(kZ[la].dT[1],rm+90,
-rn+10,12)kb(rm,rn+10,"<<","",function
-()la=la-1 if la<1 then la=#kZ end end
-)kb(rm+170,rn+10,">>","",function
-()la=la+1 if la>#kZ then la=1 end end
-)if la>jF()then kb(rm+75,rn+20,"LOCKED"
-,"",function()end)else kb(rm+75,
-rn+20,"START!","",function()sfx
-(01,50,50)ro=jK(la)iT=1 end)end end
-function kj()cls(0)print("Turns of War"
-,20+1,10,4,false,3)print("Turns of War"
-,20,10+1,4,false,3)print("Turns of War"
-,20-1,10,4,false,3)print("Turns of War"
-,20,10-1,4,false,3)print("Turns of War"
-,20,10,11,false,3)print("A turn based strategy game"
-,40,30)print("Code and design by: "
-,40,37)print("Graphics by:",40,
-37+7)print("Music and sfx:",40,
-37+7+7)print("msx80",150,37,12)
-print("Stavros",150,37+7,12)print
-("Fubuki",150,37+7+7,12)print("Ver 1.1"
-,200,130,3)spr(258,0,26,6,2,0,0
-,2,2)spr(324,240-32,26,14,2,1,0
-,2,2)ki(30,80)if rb then for rp=1,#
-jc do local rq=jc[rp]if jq(rq,qW,qX
-)then rq.af()return end end end jc={
-}end function kk()jb={}local rr=qW
+.r*16,pG.s*16,16,16,pM)end 
+
+
+function ka(pQ,pR,pS,pT,pU)
+  table.insert(jb,{r=pQ,s=pR,ac=pS,ad=pT,ae=pU})
+end 
+
+function kb(pW,pX,pY,pZ,qa)
+  local qb=4+print(pY,0,-10,15,false,1,true)
+  local qc=8+2 rect(pW,pX,qb,qc,6)
+  line(pW,pX,pW+qb-2,pX,12)
+  line(pW,pX,pW,pX+qc-2,12)
+  line(pW+1,pX+qc-1,pW+qb-1,pX+qc-1,4)
+  line(pW+qb-1,pX+1,pW+qb-1,pX+qc-1,4)
+  print(pY,pW+2,pX+2,15,false,1,true)
+  ka(pW,pX,qb,qc,pZ)
+  table.insert(jc,{r=pW,s=pX,ac=qb,ad=qc,ae=pY,af=qa})
+end 
+
+function kc(qd,qe,qf)
+  print(qd.q.aU,qe,qf,15,false,1,false)
+  spr(qd.q.aX,qe,qf+8,qd.q.bg or 14,1,0,0,2,2)
+  if qd.z then 
+    print(qd.z.."/"..qd.q.z,qe+17,qf+8,6,false,1,true)
+    ka(qe+17,qf+8,15,6,"Health points left and total")
+  end 
+  if qd.q.cy then 
+    print(qd.q.cy.min.."-"..qd.q.cy.max,qe+17,qf+14,3,false,1,true)
+    ka(qe+17,qf+14,15,6,"Attack range, min and max")
+  end 
+  if qd.q.G then 
+    print(qd:G(),qe+17,qf+20,5,false,1,true)
+    ka(qe+17,qf+20,15,6,"Distance of ranged attack or magic")
+  end 
+  qf=qf+25 
+  for qg=1,#qd.q.cx do 
+    local qh=qd.q.cx[qg]
+    local qi=qh.aZ 
+    local qj={-1,qh.bw,15," "..qh.aU}
+    if qd.x then 
+      local ql=qd.x[qh]
+      if ql then 
+        table.insert(qj,14)table.insert(qj," +"..ql)
+        qi=qi.." - "..ql.." free (doesn't spend unit)"
+      end 
+    end 
+    local qk=qh.y 
+    if qk then 
+      local qm=qd.y[qh] or 0 
+      if qm==0 then 
+        table.insert(qj,14)
+        table.insert(qj," "..qm.."/"..qk)
+        qi=qi.." - Cooldown: Ready"
+      else 
+        table.insert(qj,6)
+        table.insert(qj," "..qm.."/"..qk)
+        qi=qi.." - Cooldown: "..qm.." turns left"
+      end 
+    end 
+    jt(qj,qe,qf+1)
+    ka(qe,qf+1,60,8,qi)
+    qf=qf+9 
+  end 
+  qf=qf+8
+  for qn,qo in pairs(qd.u) do 
+    qf=qf+7 
+    spr(qn.aX,qe-1,qf-2,qn.bg or 14)
+    local qp=qo>0 and qo or"A"
+    jt({15,qn.aU,14," ["..qp.."]"},qe+7,qf,15)
+    ka(qe+7,qf,60,8,qn.aZ..(qo>0 and""or" (area effect)"))
+  end 
+  qf=90 
+  if qd.t==0 then 
+    kb(qe,qf,"Pass","Don't use this unit this turn.",function()qd:A(kS.aT)sfx(2,50,20)kP()end)
+  end 
+end 
+
+function kd(qq)
+  iY=qq 
+  iW=0 
+  jX();
+end 
+
+function ke(qr,qs,qt)
+  if qr<0 or qs<0 or qr>21 or qs>15 then 
+    return qt 
+  else 
+    return mget(qr,qs)
+  end 
+end 
+  
+  
+  function kf(qu,qw,qx)
+    local qy=0 
+    if ke(qu-1,qw-1,qx)~=qx then 
+      qy=qy+1 
+    end 
+    if ke(qu,qw-1,qx)~=qx then
+      qy=qy+2 
+    end 
+    if ke(qu+1,qw-1,qx)~=qx then 
+      qy=qy+4 
+    end 
+    if ke(qu+1,qw,qx)~=qx then 
+      qy=qy+8 
+    end 
+    if ke(qu+1,qw+1,qx)~=qx then 
+      qy=qy+16 
+    end 
+    if ke(qu,qw+1,qx)~=qx then 
+      qy=qy+32 
+    end 
+    if ke(qu-1,qw+1,qx)~=qx then 
+      qy=qy+64 
+    end 
+    if ke(qu-1,qw,qx)~=qx then 
+      qy=qy+128 
+    end 
+    return qy 
+  end 
+  
+  
+  function kg(qz,qA)
+    local qB={}
+    local qC={}
+    for qF=0,10 do
+      for qG=0,7 do 
+        local qH=mget(qF+qz,qG+qA)
+        if qH>=32 and qH<128 then
+          for qI,qJ in pairs(kY) do 
+            if qJ.aX==qH then 
+              table.insert(qB,jJ(qJ,qF,qG,-1))
+            end 
+          end
+          qH=0 
+        end 
+        if qH<128 then 
+          mset(qF*2,qG*2,qH)
+          mset(qF*2+1,qG*2,qH)
+          mset(qF*2,qG*2+1,qH)
+          mset(qF*2+1,qG*2+1,qH)
+        else 
+          mset(qF*2,qG*2,qH)
+          mset(qF*2+1,qG*2,qH+1)
+          mset(qF*2,qG*2+1,qH+16)
+          mset(qF*2+1,qG*2+1,qH+17)
+        end 
+        qC[jr(qF,qG)]=qH 
+      end 
+    end 
+
+    local qD={}
+
+    for qK=0,21 do 
+      for qL=0,15 do 
+        local qM=mget(qK,qL)
+        if qM>=1 and qM<3 then
+          local qN=kf(qK,qL,qM)
+          if qN>0 then 
+            table.insert(qD,{r=qK,s=qL,q=qN})
+          end
+        end
+      end
+    end
+
+    local qE={[1]=11,[3]=1,[4]=10,[6]=1,[7]=1,[12]=4,[16]=8,[24]=4,[28]=4,[31]=2,[48]=6,[64]=9,[96]=6,[112]=6,[124]=7,[129]=3,[192]=3,[193]=3,[199]=0,[241]=5,}
+
+    for qO=1,#qD do 
+      local qP=qD[qO]
+      if qE[qP.q]then 
+        local qQ=mget(qP.r,qP.s)
+        local qR=32 
+        if qQ==1 then 
+          qR=240 
+        elseif qQ==2 then 
+          qR=224 
+        end 
+        mset(qP.r,qP.s,qE[qP.q]+qR)
+      end 
+    end 
+    for qS=0,21 do 
+      for qT=0,15 do 
+        local qU=mget(qS,qT)
+        if qU<16 and math.random(100)>95 then 
+          mset(qS,qT,qU+16)
+        end 
+      end
+    end 
+    return qB,qC 
+  end 
+
+
+function TIC()
+  qW,qX,qY,qZ,ra=mouse()
+  rb=qY and not re 
+  rc=qZ and not rf 
+  rd=ra and not rg 
+  re=qY 
+  rf=qZ 
+  rg=ra 
+  if iT==0 then 
+    kj()
+  else
+    kk()
+  end 
+end 
+
+
+function kh(rh,ri,rj,rk)
+  local rl=print(rh,0,-10,rk)
+  print(rh,ri-(rl//2),rj,rk)
+end 
+
+
+function ki(rm,rn)
+  kh("CHOOSE LEVEL:",rm+90,rn,15)
+  kh(kZ[la].dT[1],rm+90,rn+10,12)
+  kb(rm,    rn+10,"<<","",function() la=la-1 if la<1 then la=#kZ end end)
+  kb(rm+170,rn+10,">>","",function()la=la+1 if la>#kZ then la=1 end end)
+  if la>jF()then 
+    kb(rm+75,rn+20,"LOCKED","",function()end)
+  else 
+    kb(rm+75,rn+20,"START!","",function()sfx(01,50,50)ro=jK(la)iT=1 end)
+  end 
+end
+
+
+function kj()
+  cls(0)
+  print("Turns of War",20+1,10,4,false,3)
+  print("Turns of War",20,10+1,4,false,3)
+  print("Turns of War",20-1,10,4,false,3)
+  print("Turns of War",20,10-1,4,false,3)
+  print("Turns of War",20,10,11,false,3)
+  print("A turn based strategy game",40,30)
+  print("Code and design by: ",40,37)
+  print("Graphics by:",40,37+7)
+  print("Music and sfx:",40,37+7+7)
+  print("msx80",150,37,12)
+  print("Stavros",150,37+7,12)
+  print("Fubuki",150,37+7+7,12)
+  print("Ver 1.1",200,130,3)
+  spr(258,0,26,6,2,0,0,2,2)
+  spr(324,240-32,26,14,2,1,0,2,2)
+  ki(30,80)
+  if rb then 
+    for rp=1,#jc do 
+      local rq=jc[rp]
+      if jq(rq,qW,qX)then 
+        rq.af()
+        return 
+      end 
+    end 
+  end 
+  jc={}
+end 
+
+
+
+
+
+function kk()jb={}local rr=qW
 //16 local rs=qX//16 if not je then if
 jd then if rb then local rt=jd.onClose
 jd=nil if rt then rt()end end else local
