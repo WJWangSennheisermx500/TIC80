@@ -102,20 +102,58 @@ end
 
 
 function js(lC)
-return lC%20,lC//20 end function jt
-(lD,lE,lF)if type(lD)=="string"then
-print(lD,lE,lF,15,false,1,true)
-else for lG=1,#lD,2 do local lH=lD[lG
-+1]local lI=lD[lG]local lJ if lI<0 then
-spr(lH,lE,lF-1,0-lI)lJ=8 else lJ=
-print(lH,lE,lF,lI,false,1,true)
-end lE=lE+lJ end end end function ju(
-lK)return lK end function jw(lL)local
-lM=1.70158;return lL*lL*((lM+1)*
-lL-lM)end function jx(lN)return lN
-*lN end function jy(lO)lO=lO*2 if(lO
-)<1 then return 0.5*lO*lO;else return
--0.5*((lO-1)*(lO-3)-1);end end function
+  return lC%20,lC//20 
+end 
+
+function jt(lD,lE,lF)
+  if type(lD)=="string" then
+    print(lD,lE,lF,15,false,1,true)
+  else 
+    for lG=1,#lD,2 do 
+      local lH=lD[lG+1]
+      local lI=lD[lG]
+      local lJ 
+      if lI<0 then
+        spr(lH,lE,lF-1,0-lI)
+        lJ=8 
+      else lJ=print(lH,lE,lF,lI,false,1,true)
+      end 
+      lE=lE+lJ 
+    end 
+  end 
+end 
+
+
+function ju(lK)
+  return lK 
+end 
+
+
+
+function jw(lL)
+  local lM=1.70158;
+  return lL*lL*((lM+1)*lL-lM)
+end 
+
+
+function jx(lN)
+  return lN*lN 
+end 
+
+
+
+function jy(lO)
+  lO=lO*2 
+  if(lO)<1 then 
+    return 0.5*lO*lO;
+  else 
+    return -0.5*((lO-1)*(lO-3)-1);
+  end 
+end 
+
+
+
+function
 jz(lP)if lP==0 then return 0 end if lP
 ==1 then return 1 end return math.pow
 (2,-10*lP)*math.sin((lP-0.1)*5*
