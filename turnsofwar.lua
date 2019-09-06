@@ -90,11 +90,18 @@ function jp(...)
 end 
 
 
-function
-jq(lx,ly,lz)return ly>=lx.r and lz
->=lx.s and ly<(lx.r+lx.ac)and lz<(
-lx.s+lx.ad)end function jr(lA,lB)
-return lA+lB*20 end function js(lC)
+function jq(lx,ly,lz)
+  return ly>=lx.r and lz>=lx.s and ly<(lx.r+lx.ac) and lz<(lx.s+lx.ad)
+end 
+
+
+function jr(lA,lB)
+  return lA+lB*20 
+end 
+
+
+
+function js(lC)
 return lC%20,lC//20 end function jt
 (lD,lE,lF)if type(lD)=="string"then
 print(lD,lE,lF,15,false,1,true)
