@@ -153,35 +153,107 @@ end
 
 
 
-function
-jz(lP)if lP==0 then return 0 end if lP
-==1 then return 1 end return math.pow
-(2,-10*lP)*math.sin((lP-0.1)*5*
-math.pi)+1;end function jA(lQ)lQ:
-j(lQ.p,lQ.o)lQ.n=lQ.n+1 local lR=
-lQ.n/lQ.k lQ.p=lQ.l(lR)lQ.o=lQ.k
-*lQ.p if jB(lQ)then if lQ.m then lQ:m
-()end return false end return true end
-function jB(lS)return lS.n>=lS.k end
-function jC(lT,lU,lW,lX)return{j
-=lT,k=lU,l=lW,m=lX,n=0,o=0,p=0}
-end function jD(lY,lZ,ma)return jC
-(function(mb,mc,md)if not jB(lY)then
-jA(lY)end if not jB(lZ)then jA(lZ)end
-end,math.max(lY.k,lZ.k),ju,ma)end
-function jE(me,mf,mg)return jC(function
-(mh,mi,mj)if not jB(me)then jA(me)
-end if jB(me)and not jB(mf)then jA(mf
-)end end,me.k+mf.k,ju,mg)end function
-jF()local mk=pmem(0)if mk==0 then mk
-=1 end return mk end function jG(ml)if
-pmem(0)<ml then pmem(0,ml)end end function
-jH(mm)for mn,mo in pairs(mm.y)do if
-mo>0 then mm.y[mn]=mo-1 end end mm.x
-={}if mm.q.x then for mp,mq in pairs(
-mm.q.x)do mm.x[mp]=mq end end mm:D(
-)end function jI(mr)for ms,mt in pairs
-(mr)do return true end return false end
+function jz(lP)
+  if lP==0 then 
+    return 0 
+  end 
+  if lP==1 then 
+    return 1 
+  end 
+  return math.pow(2,-10*lP)*math.sin((lP-0.1)*5*math.pi)+1;
+end 
+
+
+
+
+
+function jA(lQ)
+  lQ:j(lQ.p,lQ.o)
+  lQ.n=lQ.n+1 
+  local lR=lQ.n/lQ.k 
+  lQ.p=lQ.l(lR)
+  lQ.o=lQ.k*lQ.p 
+  if jB(lQ) then 
+    if lQ.m then lQ:m()
+    end 
+    return false 
+  end 
+  return true 
+end
+
+
+
+function jB(lS)
+  return lS.n>=lS.k 
+end
+
+
+
+function jC(lT,lU,lW,lX)
+  return{j=lT,k=lU,l=lW,m=lX,n=0,o=0,p=0}
+end 
+
+
+function jD(lY,lZ,ma)
+  return jC(function(mb,mc,md)
+    if not jB(lY)then 
+      jA(lY)
+    end 
+    if not jB(lZ)then 
+      jA(lZ)
+    end
+  end, math.max(lY.k,lZ.k),ju,ma)
+end
+function jE(me,mf,mg)
+  return jC(function(mh,mi,mj)
+    if not jB(me)then 
+      jA(me)
+    end 
+    if jB(me)and not jB(mf)then 
+      jA(mf)
+    end 
+  end,me.k+mf.k,ju,mg)
+end 
+
+function jF()
+  local mk=pmem(0)
+  if mk==0 then 
+    mk=1 
+  end 
+  return mk 
+end 
+
+function jG(ml)
+  if pmem(0)<ml then 
+    pmem(0,ml)
+  end 
+end 
+
+function jH(mm)
+  for mn,mo in pairs(mm.y) do 
+    if mo>0 then 
+      mm.y[mn]=mo-1 
+    end 
+  end 
+  mm.x={}
+  if mm.q.x then 
+    for mp,mq in pairs(mm.q.x)do 
+      mm.x[mp]=mq 
+    end 
+  end 
+  mm:D()
+end 
+
+
+
+function jI(mr)
+  for ms,mt in pairs(mr)do 
+    return true 
+  end 
+  return false 
+end
+
+
 function jJ(mu,mw,mx,my)local mz=
 mu if not mz.cB then mz.cB=0 end local
 mA={q=mz,r=mw,s=mx,t=my,u={},w=
