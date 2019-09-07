@@ -738,7 +738,7 @@ function kf(qu,qw,qx)
   end 
   
   
-  function kg(qz,qA)
+function kg(qz,qA)
     local qB={}
     local qC={}
     for qF=0,10 do
@@ -805,7 +805,7 @@ function kf(qu,qw,qx)
       end
     end 
     return qB,qC 
-  end 
+end 
 
 
 function TIC()
@@ -877,73 +877,152 @@ end
 
 
 
-function kk()jb={}local rr=qW
-//16 local rs=qX//16 if not je then if
-jd then if rb then local rt=jd.onClose
-jd=nil if rt then rt()end end else local
-ru=nil if iZ then ru=iZ[jr(rr,rs)]end
-if rb and((not iS)or not ru)then if qW
-<=176 then kd(ro:N(rr,rs))else for
-rw=1,#jc do local rx=jc[rw]if jq(rx
-,qW,qX)then rx.af()return end end end
-elseif((rd and not iS)or(rb and iS))
-and iY and iZ and iY.t==ro.I then if ru
-then ru[1]:by(iY,rr,rs)end end end
-end cls(4)map(0,0,22,16)if rr<11 and
-rs<8 then rectb(rr*16,rs*16,16,16
-,14)end for ry=1,#ro.K do local rz=ro
-.K[ry]jZ(rz)end if iY then jc={}kc(
-iY,180,1)end kb(190,118,"Restart"
-,"Restart current level.",function
-()ro=jK(ro.J)return end)if not je then
-if iZ then for rA=0,10 do for rB=0,7 do
-local rC=iZ[jr(rA,rB)]if rC then spr
-(rC[1].bw,rA*16+4,rB*16+4,1,1,0
-,0,1,1)end end end end end if je then if
-jB(je)then je=nil else jA(je)end end
-iU=iU+1 iW=iW+1 if ja then for rD=1,#
-ja do pix(ja[rD][1],ja[rD][2],5)end
-end for rE=1,#jb do if jq(jb[rE],qW,
-qX)then print(jb[rE].ae,0,16*8+2
-,15,false,1,true)end end if jd then
-kl()end line(176,0,176,128-1,3)line
-(0,128,176,128,3)spr(494,240-16
-,136-16,0,1,0,0,2,2)end function
-kl()local rF=0 for rH=1,#jd do local
-rI=print(jd[rH],0,-20,1)//2 if rI
->rF then rF=rI end end local rG=(#jd*
-7)//2 rect(88-rF-5,60-rG,rF*2+10
-,(rG*2)+10,jd.cols[1])rectb(88-
-rF-4,61-rG,rF*2+8,(rG*2)+8,jd.cols
-[2])for rJ=1,#jd do print(jd[rJ],88
--rF,60-rG+5+(rJ-1)*7,(rJ==1)and
-jd.cols[3]or jd.cols[4])end end function
-km(rK,rL,rM,rN)return jC(function
-(rO,rP,rQ)print(rK,rL-1,rM-rP*10
-,0,false,1,true)print(rK,rL+1,rM
--rP*10,0,false,1,true)print(rK,
-rL,rM-rP*10+1,0,false,1,true)print
-(rK,rL,rM-rP*10-1,0,false,1,true
-)print(rK,rL,rM-rP*10,rN,false,
-1,true)end,50,ju)end function kn(
-rR,rS)local rT=jC(function(rU,rW
-,rX)rU.v=rU.v+0.15 rU.s=rU.s+rU.
-v circ(rR+rU.n/4,rS+rU.s,2,6)circ
-(rR-rU.n/4,rS+rU.s,2,6)circ(rR+
-rU.n/5,rS+rU.s*1.2+1,2,6)circ(rR
--rU.n/5,rS+rU.s*1.2+1,2,6)circ(
-rR+rU.n/6,rS+rU.s*1.4,2,6)circ(
-rR-rU.n/6,rS+rU.s*1.4,2,6)end,30
-,jw)rT.v=-2 rT.s=0 return rT end function
-ko(rY,rZ,sa,sb,sc)return jC(function
-(sd,se,sf)rZ(rY,se,sf)end,sa,sb
-,function()rY.ax=0;rY.ay=0;iW=0
-;if sc then sc()end end)end function
-kp(sg,sh,si,sj)local sk=sh-sg.r local
-sl=si-sg.s return ko(sg,function(
-sm,sn,so)sm.ax=sn*16*sk sm.ay=sn
-*16*sl end,40,jy,sj)end function kq
-(sp,sq,sr,ss)local st=sq.r-sp.r local
+function kk()jb={}
+  local rr=qW//16 
+  local rs=qX//16 
+  if not je then 
+    if jd then 
+      if rb then 
+        local rt=jd.onClose
+        jd=nil 
+        if rt then 
+          rt()
+        end 
+      end 
+    else 
+      local ru=nil 
+      if iZ then 
+        ru=iZ[jr(rr,rs)]
+      end
+      if rb and ((not iS)or not ru) then 
+        if qW<=176 then 
+          kd(ro:N(rr,rs))
+        else 
+            for rw=1,#jc do 
+              local rx=jc[rw]
+              if jq(rx,qW,qX)then 
+                rx.af()
+                return 
+              end 
+            end 
+        end
+      elseif((rd and not iS) or (rb and iS)) and iY and iZ and iY.t==ro.I then 
+          if ru then 
+            ru[1]:by(iY,rr,rs)
+          end 
+      end 
+    end
+  end 
+  cls(4)
+  map(0,0,22,16)
+  if rr<11 and rs<8 then 
+      rectb(rr*16,rs*16,16,16,14)
+  end 
+  for ry=1,#ro.K do 
+      local rz=ro.K[ry]jZ(rz)
+  end 
+  if iY then 
+      jc={}kc(iY,180,1)
+  end 
+  kb(190,118,"Restart","Restart current level.", function() ro=jK(ro.J)return end)
+  if not je then
+    if iZ then 
+      for rA=0,10 do 
+        for rB=0,7 do
+          local rC=iZ[jr(rA,rB)]
+          if rC then 
+              spr(rC[1].bw,rA*16+4,rB*16+4,1,1,0,0,1,1)
+          end 
+        end 
+      end 
+    end 
+  end
+
+  if je then 
+    if jB(je)then 
+        je=nil 
+    else 
+        jA(je)
+    end 
+  end
+  iU=iU+1
+  iW=iW+1 
+  if ja then 
+    for rD=1,#ja do 
+        pix(ja[rD][1],ja[rD][2],5)
+    end
+  end 
+  for rE=1,#jb do 
+    if jq(jb[rE],qW,qX)then 
+        print(jb[rE].ae,0,16*8+2,15,false,1,true)
+    end 
+  end 
+  if jd then kl()
+  end 
+  line(176,0,176,128-1,3)
+  line(0,128,176,128,3)
+  spr(494,240-16,136-16,0,1,0,0,2,2)
+end
+  
+  
+function kl()
+    local rF=0 
+    for rH=1,#jd do 
+      local rI=print(jd[rH],0,-20,1)//2 
+      if rI>rF then 
+        rF=rI 
+      end 
+    end 
+    local rG=(#jd*7)//2 
+    rect(88-rF-5,60-rG,rF*2+10,(rG*2)+10,jd.cols[1])
+    rectb(88-rF-4,61-rG,rF*2+8,(rG*2)+8,jd.cols[2])
+    for rJ=1,#jd do 
+      print(jd[rJ],88-rF,60-rG+5+(rJ-1)*7,(rJ==1)andjd.cols[3]or jd.cols[4])
+    end 
+end 
+  
+  
+function km(rK,rL,rM,rN)
+  return jC(function(rO,rP,rQ) print(rK,rL-1,rM-rP*10,0,false,1,true)
+                               print(rK,rL+1,rM-rP*10,0,false,1,true)
+                               print(rK,rL,rM-rP*10+1,0,false,1,true)
+                               print(rK,rL,rM-rP*10-1,0,false,1,true)
+                               print(rK,rL,rM-rP*10,rN,false,1,true) end,
+                               50,
+                               ju)
+end 
+
+function kn(rR,rS)
+  local rT=jC(function(rU,rW,rX)rU.v=rU.v+0.15 rU.s=rU.s+rU.v circ(rR+rU.n/4,rS+rU.s,2,6)
+                                                              circ(rR-rU.n/4,rS+rU.s,2,6)
+                                                              circ(rR+rU.n/5,rS+rU.s*1.2+1,2,6)
+                                                              circ(rR-rU.n/5,rS+rU.s*1.2+1,2,6)
+                                                              circ(rR+rU.n/6,rS+rU.s*1.4,2,6)
+                                                              circ(rR-rU.n/6,rS+rU.s*1.4,2,6)
+                                                            end,
+                                                            30,
+                                                            jw)
+  rT.v=-2 
+  rT.s=0 
+  return rT 
+end 
+
+
+function ko(rY,rZ,sa,sb,sc)
+  return jC(function(sd,se,sf) rZ(rY,se,sf) end ,
+                                              sa,
+                                              sb,
+            function() rY.ax=0;rY.ay=0;iW=0;if sc then sc()end end)
+end
+
+function kp(sg,sh,si,sj)
+  local sk=sh-sg.r 
+  local sl=si-sg.s 
+  return ko(sg,function(sm,sn,so)sm.ax=sn*16*sk sm.ay=sn*16*sl end,40,jy,sj)
+end 
+
+
+function kq(sp,sq,sr,ss)local st=sq.r-sp.r local
 su=sq.s-sp.s sfx(0,40,20)return jE
 (jC(function(sw,sx,sy)spr(256,16
 *(sp.r+sx*st)+4,16*(sp.s+sx*su)
@@ -1192,107 +1271,91 @@ end end local yB=(#yx*7)//2 local yC
 yJ,yC*yJ,yD*yJ,yz[1])rectb(jo(88
 ,yE,yJ)+1,yF*yJ+1,yC*yJ-2,yD*yJ
 -2,yz[2])end,30,jx,function()jd
-=yx end)end function kW()for yL=1,#
-ro.K do local yM=ro.K[yL]if yM.t==0
-then if ro:O(yM.r,yM.s)==128 then return
-true end end end return false end function
-kX()for yN=1,#ro.K do local yO=ro.K
-[yN]if yO.t==1 then return false end
-end return true end kY={cu={aU="Soldier"
-,aX=258,bg=6,z=7,cx={kT.bs,kT.bz
-},cy=jj(2,4),x={[kT.bs]=1}},cz=
-{aU="Paladin",aX=356,bg=6,z=9,cx
-={kT.bs,kT.bz,kT.ce},cy=jj(3,4)
-,G=4,x={[kT.bs]=1,[kT.ce]=1},cB
-=2},cC={aU="Elf",aX=292,z=5,cx=
-{kT.bs,kT.bC},cy=jj(1,2),G=4,cB
-=1},cE={aU="Farmer",aX=298,z=3,
-cx={kT.bs},cB=-1},cG={aU="Tree"
-,aX=32,cx={}},cI={aU="Castle",aX
-=44,cx={}},cK={aU="Well",aX=36,
-cx={}},cM={aU="Tomb",aX=108,cx=
-{}},cO={aU="Gloomy Tree",aX=104
-,bg=6,cx={}},cQ={aU="Boulder",aX
-=42,cx={}},cS={aU="House",aX=38
-,cx={}},cU={aU="Ruins",aX=102,cx
-={}},cX={aU="Mage",aX=260,z=4,cx
-={kT.bs,kT.bz,kT.ce},cy=jj(1,2)
-,G=2,x={[kT.ce]=1},cB=10},cZ={aU
-="Brute",aX=290,z=7,cx={kT.bs,kT
-.bz},cy=jj(3,5)},db={aU="Cyclop"
-,aX=358,z=15,cx={kT.bs,kT.bz},cy
-=jj(3,5)},dd={aU="Druid",aX=266
-,z=5,cx={kT.bs,kT.bW},G=3,},df=
-{aU="Ent",aX=296,z=8,cx={kT.bs,
-kT.bz},cy=jj(1,2)},dh={aU="King"
-,aX=268,z=8,bg=11,cx={kT.bs,kT.
-be},G=2.5,cB=2},dj={aU="Dwarf",
-aX=302,z=8,cx={kT.bs,kT.bz},cy=
-jj(2,5)},dl={aU="Bomber",aX=300
-,z=8,cx={kT.bs,kT.bz,kT.bO},cy=
-jj(2,3),G=5,cB=2},dn={aU="Captain"
-,aX=270,z=5,cy=jj(1,2),cx={kT.bs
-,kT.bC,kT.cm},G=4,cB=3},dq={aU=
-"Monk",aX=264,z=5,cx={kT.bs,kT.
-bI},G=6,cB=1},ds={aU="Witch",aX
-=262,z=4,cx={kT.bs,kT.bC,kT.cq}
-,G=5,x={[kT.cq]=1},cy=jj(1,2)},
-du={aU="Shaolin",aX=294,bg=6,z=
-5,cx={kT.bs,kT.bz},cy=jj(2,3),x
-={[kT.bz]=1},cB=1},dx={aU="Skeleton"
-,aX=322,z=4,cx={kT.bs,kT.bz},cy
-=jj(1,2)},dz={aU="Goblin",aX=326
-,z=6,cx={kT.bs,kT.bz},cy=jj(2,3
-)},dB={aU="Spider",aX=330,z=6,cx
-={kT.bs,kT.bC,kT.bj},cy=jj(1,3)
-,G=3.5,cB=1},dD={aU="Snake",aX=
-328,z=3,cx={kT.bs,kT.bz},cy=jj(
-2,3),},dF={aU="Slugdo",aX=354,z
-=8,cx={kT.bs,kT.bz,kT.ci},cy=jj
-(1,2),G=3},dH={aU="Kobold",aX=324
-,z=6,cx={kT.bs,kT.bC},cy=jj(1,2
-),G=4,cB=1},dJ={aU="Lichking",aX
-=334,z=12,bg=2,cx={kT.bs,kT.bz,
-kT.ca},cy=jj(2,3),G=7,cB=3},dL=
-{aU="Rat",aX=332,z=3,cx={kT.bs,
-kT.bz},cy=jj(1,2),x={[kT.bs]=1}
-},dN={aU="Archdemon",aX=364,z=30
-,cx={kT.bs,kT.bz},cy=jj(3,6),x=
-{[kT.bs]=1,[kT.bz]=1}},dP={aU="Portal"
-,aX=386,z=50,cx={},}}kZ={{dR=12
-,dS=17,dT={"#1 TUTORIAL: MOVING"
-,"","Help the Farmer reach the"
-,"other side of the map","","The yellow circles show"
-,"where you can move.","","Left click to select a unit,"
-,"Right click to choose action"
-},ec={kY.cE,1,3},ed={},L={[-5]=
-function()local yP=ro:R(kY.dL,0,
-3,1)yP.u[kS.aT]=2 kU({"Uh uh, better hurry up!"
-},nil,ji.e)end},H=kW},{dR=0,dS=
-17,dT={"#2 TUTORIAL: ATTACK",""
-,"Phew that was close!","","The Farmer encountered a"
-,"kind Dwarf. He accepted to","protect him during the travel."
-,"","Get rid of all the enemies."
-,"","The red targets show","where you can attack."
-},ec={kY.cE,1,2,kY.dj,1,3,},ed=
-{kY.dL,10,5,kY.dL,10,4,},H=kX},
-{dR=24,dS=17,dT={"#3 TUTORIAL: FREE ACTIONS"
-,"","Some units have free actions."
-,"Free actions don't spend the"
-,"unit!","They're shown on the info box."
-,"Here, the soldier has an","extra, free Move action!"
-,"","Note: any other action will"
-,"spend the unit, so use them",
-"first!",},ec={kY.cu,1,2,kY.cu,
-1,3,},ed={kY.dD,10,3,kY.dL,10,4
-,},H=kX},{dR=36,dS=17,dT={"#4 TUTORIAL: RANGED ATTACKS"
+=yx end)end 
+
+function kW()
+  for yL=1,#ro.K do 
+    local yM=ro.K[yL]
+    if yM.t==0 then 
+      if ro:O(yM.r,yM.s)==128 then 
+        return true 
+      end 
+    end 
+  end 
+  return false 
+end
+
+function kX()
+  for yN=1,#ro.K do 
+    local yO=ro.K[yN]
+    if yO.t==1 then 
+      return false 
+    end
+  end 
+  return true 
+end 
+
+
+kY={cu={aU="Soldier",    aX=258,bg=6,z=7, cx={kT.bs,kT.bz},cy=jj(2,4),          x={[kT.bs]=1}},
+    cz={aU="Paladin",    aX=356,bg=6,z=9, cx={kT.bs,kT.bz,kT.ce},cy=jj(3,4),G=4,x={[kT.bs]=1,[kT.ce]=1},cB=2},
+    cC={aU="Elf",        aX=292,z=5,      cx={kT.bs,kT.bC},      cy=jj(1,2),G=4,                        cB=1},
+    cE={aU="Farmer",     aX=298,z=3,      cx={kT.bs},                                                   cB=-1},
+    cG={aU="Tree",       aX=32,           cx={}},
+    cI={aU="Castle",     aX=44,           cx={}},
+    cK={aU="Well",       aX=36,           cx={}},
+    cM={aU="Tomb",       aX=108,cx={}},
+    cO={aU="Gloomy Tree",aX=104,bg=6,cx={}},
+    cQ={aU="Boulder",    aX=42,           cx={}},
+    cS={aU="House",      aX=38,           cx={}},
+    cU={aU="Ruins",      aX=102,          cx={}},
+    cX={aU="Mage",       aX=260,z=4,      cx={kT.bs,kT.bz,kT.ce},cy=jj(1,2),G=2,x={[kT.ce]=1},cB=10},
+    cZ={aU="Brute",      aX=290,z=7,      cx={kT.bs,kT.bz},cy=jj(3,5)},
+    db={aU="Cyclop",     aX=358,z=15,     cx={kT.bs,kT.bz},cy=jj(3,5)},
+    dd={aU="Druid",      aX=266,z=5,      cx={kT.bs,kT.bW},G=3,},
+    df={aU="Ent",        aX=296,z=8,      cx={kT.bs,kT.bz},cy=jj(1,2)},
+    dh={aU="King",       aX=268,z=8,bg=11,cx={kT.bs,kT.be},G=2.5,cB=2},
+    dj={aU="Dwarf",      aX=302,z=8,      cx={kT.bs,kT.bz},cy=jj(2,5)},
+    dl={aU="Bomber",     aX=300,z=8,      cx={kT.bs,kT.bz,kT.bO},cy=jj(2,3),G=5,cB=2},
+    dn={aU="Captain",    aX=270,z=5,                       cy=jj(1,2),cx={kT.bs,kT.bC,kT.cm},G=4,cB=3},
+    dq={aU="Monk",       aX=264,z=5,      cx={kT.bs,kT.bI},G=6,cB=1},
+    ds={aU="Witch",      aX=262,z=4,      cx={kT.bs,kT.bC,kT.cq},G=5,x={[kT.cq]=1},cy=jj(1,2)},
+    du={aU="Shaolin",    aX=294,bg=6,z=5, cx={kT.bs,kT.bz},cy=jj(2,3),x={[kT.bz]=1},cB=1},
+    dx={aU="Skeleton",   aX=322,z=4,      cx={kT.bs,kT.bz},cy=jj(1,2)},
+    dz={aU="Goblin",     aX=326,z=6,      cx={kT.bs,kT.bz},cy=jj(2,3)},
+    dB={aU="Spider",     aX=330,z=6,      cx={kT.bs,kT.bC,kT.bj},cy=jj(1,3),G=3.5,cB=1},
+    dD={aU="Snake",      aX=328,z=3,cx={kT.bs,kT.bz},cy=jj(2,3),},
+    dF={aU="Slugdo",     aX=354,z=8,cx={kT.bs,kT.bz,kT.ci},cy=jj(1,2),G=3},
+    dH={aU="Kobold",     aX=324,z=6,cx={kT.bs,kT.bC},cy=jj(1,2),G=4,cB=1},
+    dJ={aU="Lichking",   aX=334,z=12,bg=2,cx={kT.bs,kT.bz,kT.ca},cy=jj(2,3),G=7,cB=3},
+    dL={aU="Rat",        aX=332,z=3,cx={kT.bs,kT.bz},cy=jj(1,2),x={[kT.bs]=1}},
+    dN={aU="Archdemon",  aX=364,z=30,cx={kT.bs,kT.bz},cy=jj(3,6),x={[kT.bs]=1,[kT.bz]=1}},
+    dP={aU="Portal",     aX=386,z=50,cx={},}
+}
+  
+  kZ={{dR=12,dS=17,dT={"#1 TUTORIAL: MOVING","","Help the Farmer reach the","other side of the map","","The yellow circles show","where you can move.","","Left click to select a unit,","Right click to choose action"},
+                   ec={kY.cE,1,3},
+                   ed={},
+                   L= {[-5]=function()local yP=ro:R(kY.dL,0,3,1)yP.u[kS.aT]=2 kU({"Uh uh, better hurry up!"},nil,ji.e)end},
+                   H=kW},
+      {dR=0,dS=17,dT={"#2 TUTORIAL: ATTACK","","Phew that was close!","","The Farmer encountered a","kind Dwarf. He accepted to","protect him during the travel.","","Get rid of all the enemies.","","The red targets show","where you can attack."},
+                   ec={kY.cE,1,2,kY.dj,1,3,},
+                   ed={kY.dL,10,5,kY.dL,10,4,},
+                   H=kX},
+      {dR=24,dS=17,dT={"#3 TUTORIAL: FREE ACTIONS","","Some units have free actions.","Free actions don't spend the","unit!","They're shown on the info box.","Here, the soldier has an","extra, free Move action!","","Note: any other action will","spend the unit, so use them","first!",},
+                   ec={kY.cu,1,2,kY.cu,1,3,},
+                   ed={kY.dD,10,3,kY.dL,10,4,},
+                   H=kX},
+                   
+      {dR=36,dS=17,dT={"#4 TUTORIAL: RANGED ATTACKS"
 ,"","Some units have ranged","attack! Their range can be"
 ,"seen in the info box or","drawn on the map."
 ,"","Help the elves defend from"
 ,"the Skeletons!"},ec={kY.cC,3,
 5,kY.cC,2,3,},ed={kY.dx,10,3,kY
 .dx,10,4,kY.dx,9,5,kY.dx,8,6,},
-H=kX},{dR=48,dS=17,dT={"#5 TUTORIAL: MAGIC"
+H=kX},
+
+      {dR=48,dS=17,dT={"#5 TUTORIAL: MAGIC"
 ,"","Some units can cast spells!"
 ,"They can give effects or","alter the match in many"
 ,"ways.","","Use your Mage ability to"
@@ -1303,7 +1366,10 @@ H=kX},{dR=48,dS=17,dT={"#5 TUTORIAL: MAGIC"
 kY.dx,1,0,kY.dx,1,1,kY.dx,3,0,kY
 .dL,0,1,kY.dL,10,7,kY.dL,9,7,kY
 .dx,10,0,kY.dL,10,1,kY.dL,2,7,kY
-.dL,1,6,kY.dL,3,7,},H=kX},{dR=60
+.dL,1,6,kY.dL,3,7,},H=kX},
+
+
+      {dR=60
 ,dS=17,dT={"#6 TUTORIAL: COOLDOWN"
 ,"","Some abilities require","some rest before being"
 ,"used again. You can","check it on the info"
@@ -1311,7 +1377,11 @@ kY.dx,1,0,kY.dx,1,1,kY.dx,3,0,kY
 ,"look like much, but...",},ec=
 {kY.dd,1,4,},ed={kY.dx,10,2,kY.
 dx,10,3,kY.dx,9,4,kY.dL,10,4,},
-H=kX},{dR=72,dS=17,dT={"#7 SKELETON'S ATTACK!"
+H=kX},
+
+
+
+      {dR=72,dS=17,dT={"#7 SKELETON'S ATTACK!"
 ,"","It's a pleasant morning","when, unexpectedly, some"
 ,"Skeletons attack the","village! We have some"
 ,"archers but they're not","many."
@@ -1326,7 +1396,10 @@ H=kX},{dR=72,dS=17,dT={"#7 SKELETON'S ATTACK!"
 ,"","We never had much skeleton"
 ,"problems around here. I","wonder why they're showing"
 ,"up now..\""},nil,ji.e)end},H=
-kX},{dR=84,dS=17,dT={"#8 EVEN MORE SKELETONS!"
+kX},
+
+
+      {dR=84,dS=17,dT={"#8 EVEN MORE SKELETONS!"
 ,"","They have some kobolds too!"
 ,"Keep the mage out of their","range!"
 },ec={kY.cX,0,3,kY.cu,1,3,kY.cu
@@ -1334,7 +1407,10 @@ kX},{dR=84,dS=17,dT={"#8 EVEN MORE SKELETONS!"
 2,7,},ed={kY.dx,10,4,kY.dH,10,3
 ,kY.dx,9,4,kY.dx,10,5,kY.dx,10,
 2,kY.dx,9,2,kY.dx,10,6,kY.dx,9,
-3,kY.dH,9,5,},H=kX},{dR=96,dS=17
+3,kY.dH,9,5,},H=kX},
+
+
+      {dR=96,dS=17
 ,dT={"#9 THE RUN","","The skeleton attacks are"
 ,"intensifying. We need to","investigate and find cause!"
 ,"","The road out of the village"
@@ -1347,7 +1423,10 @@ kY.dH,8,0,kY.dD,6,3,kY.dD,7,3,kY
 .dD,6,4,kY.dD,5,1,kY.dx,1,7,kY.
 dL,2,7,kY.dx,0,7,kY.dx,1,6,kY.dD
 ,0,6,kY.dL,1,5,kY.dL,0,5,},H=kW
-},{dR=108,dS=17,dT={"#10 THE LICHKING"
+},
+
+
+     {dR=108,dS=17,dT={"#10 THE LICHKING"
 ,"","Here's the source of all",
 "those skeletons! A Lichking","has arrived to the village!"
 ,"","Be quick to take it down as"
@@ -1355,7 +1434,11 @@ dL,2,7,kY.dx,0,7,kY.dx,1,6,kY.dD
 },ec={kY.cC,1,3,kY.dn,0,4,kY.cu
 ,1,4,kY.dF,0,3,kY.cu,0,5,},ed={
 kY.dJ,9,4,kY.dx,9,3,kY.dx,9,5,}
-,H=kX},{dR=120,dS=17,dT={"#11 BRUTE ENCOUNTER"
+,H=kX},
+
+
+
+     {dR=120,dS=17,dT={"#11 BRUTE ENCOUNTER"
 ,"","On the way back to the","village, the fellowship has"
 ,"to cross a mountain pass.",""
 ,"Brutes inhabit the area,","Be careful as they're pretty"
@@ -1364,7 +1447,11 @@ kY.dJ,9,4,kY.dx,9,3,kY.dx,9,5,}
 kY.cC,1,3,kY.dn,0,4,kY.dq,1,1,kY
 .cu,1,4,kY.cu,0,5,},ed={kY.cZ,8
 ,4,kY.cZ,9,3,kY.cZ,10,5,kY.cZ,10
-,4,},H=kX},{dR=132,dS=17,dT={"#12 UH OH!"
+,4,},H=kX},
+
+
+
+     {dR=132,dS=17,dT={"#12 UH OH!"
 ,"","A couple of Kobolds ambushed"
 ,"your team! And some other","thugs are joining the party!"
 ,"","This is a tough one, plan"
@@ -1373,7 +1460,10 @@ kY.cC,1,3,kY.dn,0,4,kY.dq,1,1,kY
 ,0,3,kY.cu,1,4,kY.cu,0,5,},ed={
 kY.dH,8,4,kY.dH,8,3,kY.dz,10,5,
 kY.dz,10,4,kY.cZ,10,1,kY.cZ,7,7
-,},H=kX},{dR=144,dS=17,dT={"#13 DWARF RESQUE"
+,},H=kX},
+
+
+    {dR=144,dS=17,dT={"#13 DWARF RESQUE"
 ,"","A dwarf has been attacked"
 ,"by a bunch of Kobolds!","","Perhaps if we resque him"
 ,"he may help us later.","","Try to save him in the first"
@@ -1382,7 +1472,10 @@ kY.dz,10,4,kY.cZ,10,1,kY.cZ,7,7
 ,ec={kY.cX,1,2,kY.dF,2,2,kY.cu,
 1,3,kY.cu,0,4,kY.dj,7,4,},ed={kY
 .dH,8,4,kY.dH,7,3,kY.dH,7,5,kY.
-dH,10,5,kY.dz,10,4,},H=kX},{dR=
+dH,10,5,kY.dz,10,4,},H=kX},
+
+
+     {dR=
 156,dS=17,dT={"#14 DWARFS VS BRUTES"
 ,"","Take advantage of the","bottleneck to show them"
 ,"brutes who's the boss","of the mountains!"
@@ -1390,14 +1483,20 @@ dH,10,5,kY.dz,10,4,},H=kX},{dR=
 ,2,kY.dn,1,2,kY.dj,2,3,kY.dl,1,
 4,},ed={kY.dH,6,4,kY.cZ,8,4,kY.
 cZ,8,3,kY.cZ,8,5,kY.cZ,6,5,kY.cZ
-,10,3,kY.dz,10,4,},H=kX},{dR=168
+,10,3,kY.dz,10,4,},H=kX},
+
+
+     {dR=168
 ,dS=17,dT={"#15 UNDER ATTACK",""
 ,"The tables have turned:","now WE are under attack"
 ,"from ranged enemies!","","No subtleties here, just"
 ,"rush onto them!"},ec={kY.dj,1
 ,2,kY.dj,1,3,kY.dF,2,2,kY.dj,1,
 4,},ed={kY.dH,9,4,kY.dH,8,4,kY.
-dH,9,3,},H=kX},{dR=180,dS=17,dT
+dH,9,3,},H=kX},
+
+
+     {dR=180,dS=17,dT
 ={"#16 BACK AT THE VILLAGE","",
 "Oh no! The village has been","Overrun by the forces of evil!"
 ,},ec={kY.cu,2,2,kY.cu,2,3,kY.dF
@@ -1406,7 +1505,10 @@ dH,9,3,},H=kX},{dR=180,dS=17,dT
 ,2,},ed={kY.dx,9,5,kY.dx,8,5,kY
 .dH,9,3,kY.dH,10,2,kY.dJ,10,3,kY
 .dJ,10,4,kY.dz,10,5,kY.dH,10,6,
-},H=kX},{dR=192,dS=17,dT={"#17 SEARCHING FOR HELP"
+},H=kX},
+
+
+     {dR=192,dS=17,dT={"#17 SEARCHING FOR HELP"
 ,"","The village destroyed, you"
 ,"have to rally some forces..",
 "You try and head for a","nearby monastry, where a"
@@ -1415,7 +1517,10 @@ dH,9,3,},H=kX},{dR=180,dS=17,dT
 },ec={kY.cu,2,2,kY.dj,2,4,kY.dq
 ,1,4,kY.cX,1,3,},ed={kY.du,7,4,
 kY.du,8,3,kY.du,9,5,kY.du,8,5,}
-,H=kX},{dR=204,dS=17,dT={"#18 SURROUNDED BY BRUTES"
+,H=kX},
+
+
+     {dR=204,dS=17,dT={"#18 SURROUNDED BY BRUTES"
 ,"","Wow, those kids were fast"
 ,"as lighting! Good that we","won their respect!"
 ,"","Looks like some brutes are"
@@ -1424,15 +1529,19 @@ kY.du,8,3,kY.du,9,5,kY.du,8,5,}
 ,6,4,kY.cX,5,3,kY.dq,5,5},ed={kY
 .cZ,4,0,kY.cZ,9,3,kY.cZ,8,4,kY.
 cZ,9,5,kY.cZ,8,6,kY.cZ,0,5,kY.cZ
-,0,6,},H=kX},{dR=216,dS=17,dT={
+,0,6,},H=kX},
+
+
+     {dR=216,dS=17,dT={
 "#19 CYCLOPS","","Uh oh, looks who's there.."
 ,"Those guys are pretty","big and strong."
 ,"","Luckly the Shaolin are","fast enought to sting and"
 ,"back off."},ec={kY.cu,4,2,kY.
 du,5,4,kY.du,6,4,kY.cX,5,3,},ed
 ={kY.db,9,3,kY.db,8,4,kY.dD,8,6
-,kY.dD,0,5,kY.dD,0,6,},H=kX},{dR
-=228,dS=17,dT={"#20 CALL IN THE PALADIN"
+,kY.dD,0,5,kY.dD,0,6,},H=kX},
+
+     {dR=228,dS=17,dT={"#20 CALL IN THE PALADIN"
 ,"","We arrived at the remote",
 "retire of a powerfull paladin."
 ,"","If we can get past all those"
@@ -1444,7 +1553,11 @@ ec={kY.cu,1,3,kY.du,1,4,kY.dF,0
 db,8,4,kY.dD,9,6,kY.db,10,6,kY.
 dL,7,1,kY.dL,8,1,kY.dL,8,2,kY.dL
 ,9,5,kY.dL,10,3,kY.dB,8,3,kY.dH
-,9,4,},H=kW},{dR=0,dS=26,dT={"#21 TO THE KING"
+,9,4,},H=kW},
+
+
+
+{dR=0,dS=26,dT={"#21 TO THE KING"
 ,"","With the paladin on our side"
 ,"we'll be able to get the King"
 ,"attention and involvement!",""
@@ -1454,7 +1567,11 @@ dL,7,1,kY.dL,8,1,kY.dL,8,2,kY.dL
 cC,1,6,},ed={kY.dz,9,3,kY.dz,8,
 4,kY.dH,8,2,kY.dH,10,3,kY.dL,7,
 1,kY.dL,8,1,kY.dD,5,7,kY.dD,4,7
-,},H=kX},{dR=12,dS=26,dT={"#22 COUNTERATTACK!"
+,},H=kX},
+
+
+
+{dR=12,dS=26,dT={"#22 COUNTERATTACK!"
 ,"","The king agreed to meet us"
 ,"and decided it's time to","fight the monsters back"
 ,"and free the reign once","again!"
@@ -1466,14 +1583,22 @@ cC,1,6,},ed={kY.dz,9,3,kY.dz,8,
 L={[-2]=function()kU({"","\"Wow, having the king"
 ,"on the battlefield","gives a huge morale"
 ,"boost to our troops!","","We are unstoppable!\""
-,""},nil,ji.e)end},H=kX},{dR=24
+,""},nil,ji.e)end},H=kX},
+
+
+
+{dR=24
 ,dS=26,dT={"#23 THE WITCH","",}
 ,ec={kY.dh,1,3,kY.cz,1,2,kY.cu,
 0,2,kY.dq,0,3,},ed={kY.dH,6,1,kY
 .dH,7,1,kY.dH,2,7,kY.dH,3,7,kY.
 dH,5,7,kY.cZ,8,4,kY.cZ,9,5,kY.dL
 ,8,3,kY.dL,9,3,kY.dD,6,3,kY.dD,
-6,4,},H=kW},{dR=36,dS=26,dT={"#24 WITCHY WITCH"
+6,4,},H=kW},
+
+
+
+{dR=36,dS=26,dT={"#24 WITCHY WITCH"
 ,"","The witch joins the battle."
 ,"Sure she'll be useful, but","you're not sure you like her."
 ,"","She need to reach a magical"
@@ -1486,7 +1611,11 @@ dH,5,7,kY.cZ,8,4,kY.cZ,9,5,kY.dL
 0,1,},ed={kY.cZ,8,4,kY.cZ,9,5,kY
 .cZ,10,5,kY.cZ,6,2,kY.dL,8,3,kY
 .dL,7,7,kY.db,9,3,kY.dz,7,3,kY.
-dz,5,6,kY.dD,7,4,},H=kX},{dR=48
+dz,5,6,kY.dD,7,4,},H=kX},
+
+
+
+{dR=48
 ,dS=26,dT={"#25 THE MAGICAL WELL"
 ,"","We reached the well, move"
 ,"the witch nearby to perform",
@@ -1512,7 +1641,11 @@ yT.q==kY.ds then kU({"ABRA CADABRA!"
 ,"the power of the magic well!"
 ,"the unit dies in a huge","explosion taking everybody"
 ,"with him!"},kO,ji.e)end end},H
-=function()return false;end},{dR
+=function()return false;end},
+
+
+
+{dR
 =60,dS=26,dT={"#26 THE PORTAL",
 "","This is it, the final battle!"
 ,"","The portal is here, and it has"
@@ -1536,7 +1669,10 @@ yX=ro:S(kY.dx,10,5,1)if yX then yX
 ,4,7,1)if yX then yX.u[kS.aT]=1 end
 local yX=ro:S(kY.dx,5,0,1)if yX then
 yX.u[kS.aT]=1 end end end end,H=kX}
-,{dR=72,dS=26,dT={"#27 VICTORY!"
+,
+
+
+{dR=72,dS=26,dT={"#27 VICTORY!"
 ,"","The portal has been closed!"
 ,"We WON the war against the","evil forces!"
 ,"","Once the dust settled, the"
@@ -1558,8 +1694,11 @@ yX.u[kS.aT]=1 end end end end,H=kX}
 ," Stavros (eliacoan @ twitter)"
 ,"","Music and sfx by:"," Fubuki"
 },nil,ji.e)end,ji.e)end end,H=function
-()return false end}}la=jF()music(
-3)
+()return false end}
+
+}
+
+la=jF()music(3)
 
 -- <TILES>
 -- 000:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
