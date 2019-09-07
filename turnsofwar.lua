@@ -206,6 +206,8 @@ function jD(lY,lZ,ma)
     end
   end, math.max(lY.k,lZ.k),ju,ma)
 end
+
+
 function jE(me,mf,mg)
   -- return jC(function(mh,mi,mj)
   return jC(function()
@@ -218,6 +220,7 @@ function jE(me,mf,mg)
   end,me.k+mf.k,ju,mg)
 end
 
+
 function jF()
   local mk=pmem(0)
   if mk==0 then
@@ -226,11 +229,13 @@ function jF()
   return mk
 end
 
+
 function jG(ml)
   if pmem(0)<ml then
     pmem(0,ml)
   end
 end
+
 
 function jH(mm)
   for mn,mo in pairs(mm.y) do
@@ -489,7 +494,7 @@ function jJ(mu,mw,mx,my)
                   kU(mT.dT,nil,ji.b)
                   music((mS+1)%2)
                   return na 
-                end 
+end 
 
 
 
@@ -529,40 +534,90 @@ function jR(pa,pb,pc,pd)
   return jm(pa.r,pa.s,pc,pd)<=pa:G()
 end
  
-function jS(pe,pf,pg,ph)return
-pf and(pf.t>=0)and(pf.t~=pe.t)end
-function jT(pi,pj,pk,pl)return pj
-and pj~=pi and pj.t==pi.t end function
-jU(pm,pn,po,pp)return not pn:E(kS
-.aT)end function jW(pq,pr,ps,pt)return
-false end function jX()if iY and not iY
-:E(kS.aT)then iZ=ro:Z(iY)else iZ=
-nil end if iY and iY.q.G then jY(iY.r,
-iY.s,iY:G())else ja=nil end end function
-jY(pu,pw,px)ja={}local py={}for pz
-=0,11 do py[pz]={}for pA=0,8 do local
-pB=jm(pu,pw,pz,pA)<=px py[pz][pA
-]=pB end end for pC=0,10 do for pD=0,7
-do if py[pC][pD]~=py[pC+1][pD]then
-for pE=0,15,2 do table.insert(ja,{
-pC*16+16,pD*16+pE})end end if py[pC
-][pD]~=py[pC][pD+1]then for pF=0,
-15,2 do table.insert(ja,{pC*16+pF
-,pD*16+16})end end end end end function
-jZ(pG)local pH=pG.ax or 0 local pI=pG
-.ay or 0 if pG==iY and not je and iZ and not
-jd and pG.t==0 then pI=-math.abs(math
-.sin(iW/10))*3 pH=0 end local pJ={}
-for pN,pO in pairs(pG.u)do table.insert
-(pJ,pN)end local pK=(7*#pJ)//2 for
-pP=1,#pJ do spr(pJ[pP].aX,pG.r*16
-+pH-pK+pP*7,pG.s*16+pI-8,pJ[pP]
-.bg or 14)end local pL=0 if pG.t==1 then
-pL=1 end spr(pG.q.aX,pG.r*16+pH,pG
-.s*16+pI,pG.q.bg or 14,1,pL,0,2,2
-)local pM=pG.q.aU if pG.z then pM=pM
-.." "..pG.z.."/"..pG.q.z end ka(pG
-.r*16,pG.s*16,16,16,pM)end 
+function jS(pe,pf,pg,ph)
+  return pf and (pf.t>=0) and (pf.t~=pe.t) 
+end
+
+
+function jT(pi,pj,pk,pl)
+  return pj and pj~=pi and pj.t==pi.t 
+end 
+
+function jU(pm,pn,po,pp)
+  return not pn:E(kS.aT)
+end 
+
+
+function jW(pq,pr,ps,pt)
+  return false 
+end 
+
+
+function jX()
+  if iY and not iY:E(kS.aT) then 
+    iZ=ro:Z(iY) else iZ=nil 
+  end 
+  if iY and iY.q.G then 
+    jY(iY.r,iY.s,iY:G()) 
+  else 
+    ja=nil 
+  end 
+end 
+
+function jY(pu,pw,px)
+  ja={}
+  local py={}
+  for pz=0,11 do 
+    py[pz]={}
+    for pA=0,8 do 
+      local pB=jm(pu,pw,pz,pA)<=px 
+      py[pz][pA]=pB
+    end 
+  end 
+  for pC=0,10 do 
+    for pD=0,7 do 
+      if py[pC][pD]~=py[pC+1][pD] then
+        for pE=0,15,2 do 
+          table.insert(ja,{pC*16+16,pD*16+pE})
+        end 
+      end 
+      if py[pC][pD]~=py[pC][pD+1] then 
+        for pF=0,15,2 do 
+          table.insert(ja,{pC*16+pF,pD*16+16})
+        end 
+      end 
+    end 
+  end 
+end 
+
+
+
+function jZ(pG)
+  local pH=pG.ax or 0 
+  local pI=pG.ay or 0 
+  if pG==iY and not je and iZ and not jd and pG.t==0 then 
+    pI=-math.abs(math.sin(iW/10))*3 
+    pH=0 
+  end 
+  local pJ={} 
+  for pN,pO in pairs(pG.u) do 
+    table.insert(pJ,pN)
+  end 
+  local pK=(7*#pJ)//2 
+  for pP=1,#pJ do 
+    spr(pJ[pP].aX,pG.r*16+pH-pK+pP*7,pG.s*16+pI-8,pJ[pP].bg or 14)
+  end 
+  local pL=0 
+  if pG.t==1 then
+    pL=1 
+  end 
+  spr(pG.q.aX,pG.r*16+pH,pG.s*16+pI,pG.q.bg or 14,1,pL,0,2,2)
+  local pM=pG.q.aU 
+  if pG.z then 
+    pM=pM.." "..pG.z.."/"..pG.q.z 
+  end 
+  ka(pG.r*16,pG.s*16,16,16,pM)
+end 
 
 
 function ka(pQ,pR,pS,pT,pU)
@@ -654,7 +709,7 @@ function ke(qr,qs,qt)
 end 
   
   
-  function kf(qu,qw,qx)
+function kf(qu,qw,qx)
     local qy=0 
     if ke(qu-1,qw-1,qx)~=qx then 
       qy=qy+1 
