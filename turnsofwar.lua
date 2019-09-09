@@ -878,7 +878,8 @@ end
 
 
 
-function kk()jb={}
+function kk()
+  jb={}
   local rr=qW//16 
   local rs=qX//16 
   if not je then 
