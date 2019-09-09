@@ -31,7 +31,7 @@ iX={}
 iY=nil
 iZ=nil
 ja=nil
-jb={}
+jb={}              --似乎跟底下一行小字有关
 jc={}
 jd=nil
 je=nil
@@ -624,7 +624,7 @@ function ka(pQ,pR,pS,pT,pU)
   table.insert(jb,{r=pQ,s=pR,ac=pS,ad=pT,ae=pU})
 end 
 
-function kb(pW,pX,pY,pZ,qa)              --似乎跟按钮有关
+function kb(pW,pX,pY,pZ,qa)                                 --似乎跟按钮有关
   local qb=4+print(pY,0,-10,15,false,1,true)
   local qc=8+2 rect(pW,pX,qb,qc,6)
   line(pW,pX,pW+qb-2,pX,12)
