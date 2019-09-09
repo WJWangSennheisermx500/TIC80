@@ -1525,14 +1525,14 @@ kT={
 
 
 
-  bj={aU="Ensnare",bu=jp
-(jR,jS),bw=465,y=2,aZ="Cast ENSNARE: enemy cannot move"
-,by=function(xw,xx,xy,xz)local xA
-=ro:N(xy,xz)je=kt(xx,xA,"ENSNARE"
-,false,function()xA:A(kS.bj)kQ(
-xw,xx)end)end,bU=function(xB,xC
-,xD)local xE=ro:N(xC,xD)return not
-xE:E(kS.bj)end},
+  bj={aU="Ensnare",
+      bu=jp(jR,jS),
+      bw=465,
+      y=2,
+      aZ="Cast ENSNARE: enemy cannot move",
+      by=function(xw,xx,xy,xz) local xA=ro:N(xy,xz) je=kt(xx,xA,"ENSNARE",false,function()xA:A(kS.bj)kQ(xw,xx)end)end,
+      bU=function(xB,xC,xD) local xE=ro:N(xC,xD) return not xE:E(kS.bj)end
+    },
 
 
   bW={aU="WakeEnt",
