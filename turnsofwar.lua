@@ -736,7 +736,7 @@ function kf(qu,qw,qx)
       qy=qy+128 
     end 
     return qy 
-  end 
+end
   
   
 function kg(qz,qA)
@@ -1122,78 +1122,133 @@ end
 
 
 
-function kC(tO,tP,tQ)local
-tR=10000 local tS=nil for tT=1,#ro.
-K do local tU=ro.K[tT]if tU.t~=tQ and
-tU.t>=0 then local tW=kz(tU,tO,tP)
-if tW<tR then tR=tW tS=tT end end end return
-tR end 
-
-
-
-function kD(tX,tY)local tZ=ro
-:N(tX,tY)if tZ and tZ.t<0 then return
-false end return jM(nil,nil,tX,tY)
+function kC(tO,tP,tQ)
+  local tR=10000 
+  local tS=nil 
+  for tT=1,#ro.K do 
+    local tU=ro.K[tT]
+    if tU.t~=tQ and tU.t>=0 then 
+      local tW=kz(tU,tO,tP)
+      if tW<tR then 
+        tR=tW tS=tT 
+      end 
+    end 
+  end 
+  return tR 
 end 
 
 
 
-function kE(ua,ub,uc)iX={}local
-ud={}iX[jr(ua,ub)]=0 for ue=0,100
-do for uf,ug in pairs(iX)do if ug==ue
-then local uh,ui=js(uf)local uj=ro
-:N(uh,ui)if uj and uj.t~=uc and uj.t
->=0 then return ue end for uk=uh-1,uh
-+1 do for ul=ui-1,ui+1 do if uk>=0 and
-ul>=0 and uk<11 and ul<8 and not(uk==
-uh and ul==ui)then if kD(uk,ul)then
-local um=iX[jr(uk,ul)]if not um then
-ud[jr(uk,ul)]=ue+1 end end end end end
-end end for un,uo in pairs(ud)do iX[un
-]=uo end end return 1000 end 
-
-
-function kF(up,uq)local ur={}for us=1,#uq do
-local ut,uu=js(uq[us])table.insert
-(ur,ro:N(ut,uu))end for uw=1,#ur do
-local ux=ur[uw]if ux.z<=up.q.cy.min
-then return ux.r,ux.s end end table.
-sort(ur,function(uy,uz)return uy
-.q.cB>uz.q.cB end)return ur[1].r,
-ur[1].s end 
+function kD(tX,tY)
+  local tZ=ro:N(tX,tY)
+  if tZ and tZ.t<0 then 
+    return false 
+  end 
+  return jM(nil,nil,tX,tY)
+end 
 
 
 
+function kE(ua,ub,uc)
+  iX={}
+  local ud={}
+  iX[jr(ua,ub)]=0 
+  for ue=0,100 do 
+    for uf,ug in pairs(iX)do 
+      if ug==ue then 
+        local uh,ui=js(uf)
+        local uj=ro:N(uh,ui)
+        if uj and uj.t~=uc and uj.t>=0 then 
+          return ue 
+        end 
+        for uk=uh-1,uh+1 do
+          for ul=ui-1,ui+1 do 
+            if uk>=0 and ul>=0 and uk<11 and ul<8 and not(uk==uh and ul==ui) then 
+              if kD(uk,ul) then
+                local um=iX[jr(uk,ul)]
+                if not um then
+                  ud[jr(uk,ul)]=ue+1 
+                end 
+              end 
+            end 
+          end 
+        end
+      end 
+    end 
+    for un,uo in pairs(ud)do 
+      iX[un]=uo 
+    end 
+  end 
+  return 1000 
+end 
 
-function kG(uA)local uB
-=uA.w[kT.bz]local uC,uD=kF(uA,uB
-)kT.bz:by(uA,uC,uD)end 
+
+function kF(up,uq)
+  local ur={}
+  for us=1,#uq do
+    local ut,uu=js(uq[us])
+    table.insert(ur,ro:N(ut,uu))
+  end 
+  for uw=1,#ur do
+    local ux=ur[uw]
+    if ux.z<=up.q.cy.min then 
+      return ux.r,ux.s 
+    end 
+  end 
+  table.sort(ur,function(uy,uz)return uy.q.cB>uz.q.cB end)
+  return ur[1].r,ur[1].s 
+end 
 
 
 
 
-function kH
-(uE)local uF=uE.w[kT.bC]local uG,
-uH=kF(uE,uF)kT.bC:by(uE,uG,uH)end
+
+function kG(uA)
+  local uB=uA.w[kT.bz]
+  local uC,uD=kF(uA,uB)kT.bz:by(uA,uC,uD)
+end 
 
 
 
-function kI(uI)local uJ=uI.w[kT.bs
-]local uK=10000 local uL=nil for uO=
-1,#uJ do local uP,uQ=js(uJ[uO])local
-uR=kE(uP,uQ,uI.t)if(uR<uK)or(uR
-==uK and jn(10)>5)then uK=uR uL=uO end
-end local uM,uN=js(uJ[uL])kT.bs:by
-(uI,uM,uN)end 
+
+function kH(uE)
+  local uF=uE.w[kT.bC]
+  local uG,uH=kF(uE,uF)
+  kT.bC:by(uE,uG,uH)
+end
 
 
 
-function kJ(uS)for uT
-,uU in pairs(uS.w)do if uT~=kT.bz and
-uT~=kT.bs and uT~=kT.bC then for uW=
-1,#uU do local uX,uY=js(uU[uW])if uT
-.bU(uS,uX,uY)then uT:by(uS,uX,uY
-)return true end end end end return false
+function kI(uI)
+  local uJ=uI.w[kT.bs]
+  local uK=10000 
+  local uL=nil 
+  for uO=1,#uJ do 
+    local uP,uQ=js(uJ[uO])
+    local uR=kE(uP,uQ,uI.t)
+    if(uR<uK)or(uR==uK and jn(10)>5) then 
+      uK=uR 
+      uL=uO 
+    end
+  end 
+  local uM,uN=js(uJ[uL])kT.bs:by(uI,uM,uN)
+end 
+
+
+
+function kJ(uS)
+  for uT,uU in pairs(uS.w) do 
+    if uT~=kT.bz and uT~=kT.bs and uT~=kT.bC then 
+      for uW=1,#uU do 
+        local uX,uY=js(uU[uW])
+        if uT.bU(uS,uX,uY) then 
+           uT:by(uS,uX,uY) 
+           return true 
+        end 
+      end 
+    end 
+  end 
+  return false
 end 
 
 
@@ -1213,9 +1268,14 @@ end
 
 
 
-function kL(wi)for wj=1,#ro.K do
-local wk=ro.K[wj]if wk.t==wi then jH
-(wk)end end end 
+function kL(wi)
+  for wj=1,#ro.K do
+    local wk=ro.K[wj]
+    if wk.t==wi then 
+      jH(wk)
+    end 
+  end 
+end 
 
 
 
@@ -1232,47 +1292,84 @@ end end end end
 
 
 
-function kN()music(2
-,-1,-1,false)jG(ro.J+1)kU({"LEVEL COMPLETED!"
-},function()ro=jK(ro.J+1)end,ji
-.c)end 
+function kN()
+  music(2,-1,-1,false)
+  jG(ro.J+1)
+  kU({"LEVEL COMPLETED!"},
+      function() ro=jK(ro.J+1)end,
+      ji.c)
+end 
 
 
 
 
-function kO()music()kU({"YOU'VE BEEN DEFEATED!"
-,"","Too bad, the forces of evil"
-,"overwhelmed you.","","Click to try again!"
-},function()ro=jK(ro.J)end,ji.d
-)end 
+function kO()
+  music()
+  kU({ "YOU'VE BEEN DEFEATED!","","Too bad, the forces of evil","overwhelmed you.","","Click to try again!"},
+        function() ro=jK(ro.J) end,
+        ji.d)
+end 
 
 
 
 
-function kP()ro:P()ro:Q()ro:
-Y()if ro.H()then kN()return end if ro
-:M()then kO()return end kM()if#ro:
-U(ro.I)==0 then ro.I=(ro.I+1)%2 kL
-(ro.I)if ro.I==0 then if kZ[ro.J].hN
-then kZ[ro.J].hN()end end end if ro.
-I==0 then if iY and iY.t==ro.I and iY:
-F()then jX()else for ww=1,#ro.K do local
-wx=ro.K[ww]if wx.t==ro.I and wx:F(
-)then kd(wx)break end end end else if
-#ro:U(ro.I)==0 then kP()else kK()end
-end end 
+function kP()
+  ro:P()
+  ro:Q()
+  ro:Y()
+  if ro.H() then 
+    kN() 
+    return 
+  end 
+  if ro:M() then 
+    kO()
+    return 
+  end 
+  kM()
+  if#ro:U(ro.I)==0 then 
+    ro.I=(ro.I+1)%2 
+    kL(ro.I)
+    if ro.I==0 then 
+      if kZ[ro.J].hN then 
+        kZ[ro.J].hN()
+      end 
+    end 
+  end 
+  if ro.I==0 then 
+    if iY and iY.t==ro.I and iY:F() then 
+      jX()
+    else 
+      for ww=1,#ro.K do 
+        local wx=ro.K[ww]
+        if wx.t==ro.I and wx:F() then 
+          kd(wx)
+          break 
+        end 
+      end 
+    end 
+  else 
+    if #ro:U(ro.I)==0 then 
+      kP()
+    else kK()
+    end
+  end 
+end 
 
 
 
 
-function kQ(wy,wz)ky(wz,wy
-)kP()end 
+function kQ(wy,wz)
+  ky(wz,wy)
+  kP()
+end 
 
 
 
 
-function kR(wA,wB,wC)wA.
-r=wB wA.s=wC end 
+function kR(wA,wB,wC)
+  wA.r=wB 
+  wA.s=wC 
+end 
 
 
 
@@ -1289,7 +1386,10 @@ kS={
 
 
 
-kT={bs={aU="Move",
+kT={
+  
+  
+  bs={aU="Move",
         bu=jp(jN,function(wD,wE,wF)return not wD:E(kS.bj)end,jL,jM),
         bw=448,
         aZ="Move unit to nearby cell",
@@ -1298,7 +1398,7 @@ kT={bs={aU="Move",
              je=kp(wH,wI,wJ,function()kR(wH,wI,wJ)kQ(wG,wH)end)
             end},
         
-    bz={aU="Attack",
+  bz={aU="Attack",
         bu=jp(jS,jL),
         bw=449,
         aZ="Attack a nearby unit",
@@ -1320,60 +1420,78 @@ kT={bs={aU="Move",
               je=kw(wL,wO,wP,function() wO:B(wP) kQ(wK,wL)end)
             end},
             
-    bC={aU="Ranged",
+  bC={aU="Ranged",
         bu=jp(jR,jS),
         bw=449,
         aZ="Attack an enemy at distance",
-        by=function(wQ,wR,wS,wT)local wU
-=ro:N(wS,wT)local wW=jn(wR.q.cy)
-if wR:E(kS.bb)then wW=wW-1 end if wU
-:E(kS.be)then wW=wW-1 end if wR:E(kS
-.bp)then wW=wW+1 end if wW<0 then wW=
-0 end je=kq(wR,wU,wW,function()wU
-:B(wW)kQ(wQ,wR)end)end},
+        by= function(wQ,wR,wS,wT)
+             local wU=ro:N(wS,wT)
+             local wW=jn(wR.q.cy)
+             if wR:E(kS.bb) then 
+               wW=wW-1 
+             end 
+             if wU:E(kS.be) then 
+               wW=wW-1 
+             end 
+             if wR:E(kS.bp) then 
+               wW=wW+1 
+             end 
+             if wW<0 then 
+               wW=0 
+             end 
+             je=kq(wR,wU,wW,function() wU:B(wW)kQ(wQ,wR)end)
+            end
+      
+      },
 
 
 
-bF={aU="Teleport",
+  bF={aU="Teleport",
     bu=jp(jN,jR,jM),
     bw=464,
     aZ="Teleport to any free cell in range",
     y=2,
-    by=function(wX,wY,wZ,xa)je
-=kx(wY,wZ,xa,function()kR(wY,wZ
-,xa)kQ(wX,wY)end)end},
+    by=function(wX,wY,wZ,xa)
+      je=kx(wY,wZ,xa, function() kR(wY,wZ,xa)kQ(wX,wY)end)end},
 
-bI={aU="Hex",
+
+  bI={aU="Hex",
     bu=jp(jR,jS),
     bw=465,
     aZ="Cast HEX: enemy does -1 damage on attacks",
-    by=function(xb,xc,xd,xe)local xf
-=ro:N(xd,xe)je=kt(xc,xf,"HEX",false
-,function()xf:A(kS.bb)kQ(xb,xc)
-end)end},
+    by= function (xb,xc,xd,xe) local xf=ro:N(xd,xe); je=kt(xc,xf,"HEX",false,function() xf:A(kS.bb);kQ(xb,xc) end) end
+   },
 
 
-be={aU="Morale",bu=jW,
-bw=465,aZ="All friends in range gets MORALE effect"
-,by=function(xg,xh,xi,xj)end,bN
-=kS.be},
+  be={aU="Morale",
+    bu=jW,
+    bw=465,
+    aZ="All friends in range gets MORALE effect",
+    by=function(xg,xh,xi,xj)end,
+    bN=kS.be},
 
 
-bO={aU="Bomb",bu=jp(jR,
-jS),bw=465,aZ="Throw a bomb, 4 dmg at center, 2 adjacents"
-,y=6,by=function(xk,xl,xm,xn)local
-xo={}for xp=xm-1,xm+1 do for xq=xn-
-1,xn+1 do local xr=ro:N(xp,xq)if xr
-and xr.t>=0 then table.insert(xo,xr
-)end end end je=ks(xl,xm,xn,xo,function
-()for xs=1,#xo do local xt=xo[xs]local
-xu if xm==xt.r and xn==xt.s then xu=4
-else xu=2 end xt:B(xu)end kQ(xk,xl)
-end)end},
+  bO={aU="Bomb",
+    bu=jp(jR,jS),
+    bw=465,
+    aZ="Throw a bomb, 4 dmg at center, 2 adjacents",
+    y=6,
+    by=function(xk,xl,xm,xn)
+          local xo={}
+          for xp=xm-1,xm+1 do 
+            for xq=xn-1,xn+1 do 
+              local xr=ro:N(xp,xq)
+              if xr and xr.t>=0 then 
+                table.insert(xo,xr)
+              end 
+            end 
+          end 
+          je=ks(xl,xm,xn,xo,function() for xs=1,#xo do local xt=xo[xs] local xu if xm==xt.r and xn==xt.s then xu=4 else xu=2 end xt:B(xu)end kQ(xk,xl)end)
+    end},
 
 
 
-bj={aU="Ensnare",bu=jp
+  bj={aU="Ensnare",bu=jp
 (jR,jS),bw=465,y=2,aZ="Cast ENSNARE: enemy cannot move"
 ,by=function(xw,xx,xy,xz)local xA
 =ro:N(xy,xz)je=kt(xx,xA,"ENSNARE"
@@ -1383,33 +1501,38 @@ xw,xx)end)end,bU=function(xB,xC
 xE:E(kS.bj)end},
 
 
-bW={aU="WakeEnt"
-,bu=jp(jO,jR),bw=464,aZ="Tranform a tree into an ENT"
-,y=8,by=function(xF,xG,xH,xI)local
-xJ=ro:N(xH,xI)je=kt(xG,xJ,"WAKE"
-,true,function()ro:T(xJ,kY.df,xG
-.t)kQ(xF,xG)end)end},
+  bW={aU="WakeEnt",
+    bu=jp(jO,jR),
+    bw=464,
+    aZ="Tranform a tree into an ENT",
+    y=8,
+    by=function(xF,xG,xH,xI) local xJ=ro:N(xH,xI) je=kt(xG,xJ,"WAKE",true,function() ro:T(xJ,kY.df,xG.t) kQ(xF,xG) end ) end
+   },
 
 
-ca={aU="Recall"
-,bu=jp(jP,jR),bw=464,aZ="Tranform a tomb into a Skeleton"
-,by=function(xK,xL,xM,xN)local xO
-=ro:N(xM,xN)je=kt(xL,xO,"RAISE"
-,true,function()ro:T(xO,kY.dx,xL
+  ca={aU="Recall",
+      bu=jp(jP,jR),
+      bw=464,
+      aZ="Tranform a tomb into a Skeleton",
+      by=function(xK,xL,xM,xN)
+             local xO=ro:N(xM,xN)je=kt(xL,xO,"RAISE",true,function()ro:T(xO,kY.dx,xL
 .t)kQ(xK,xL)end)end,bU=function
 (xP,xQ,xR)return true end},
 
 
-ce={aU
-="Heal",bu=jp(jT,jR,jQ),bw=464,
-aZ="Heal 3 hp to target friend"
-,by=function(xS,xT,xU,xW)local xX
-=ro:N(xU,xW)je=kt(xT,xX,"+3",true
-,function()xX:B(-3)kQ(xS,xT)end
-)end},
+  ce={
+       aU="Heal",
+       bu=jp(jT,jR,jQ),
+       bw=464,
+       aZ="Heal 3 hp to target friend",
+       by=function(xS,xT,xU,xW)
+            local xX=ro:N(xU,xW)
+            je=kt(xT,xX,"+3",true,function()xX:B(-3)kQ(xS,xT)end)
+          end
+      },
 
 
-ci={aU="Haste",bu=jp(jT,jR
+  ci={aU="Haste",bu=jp(jT,jR
 ,jU),bw=464,aZ="Give 2 free move actions to unspent friend"
 ,y=2,by=function(xY,xZ,ya,yb)local
 yc=ro:N(ya,yb)je=kt(xZ,yc,"HASTE"
@@ -1418,7 +1541,7 @@ yc=ro:N(ya,yb)je=kt(xZ,yc,"HASTE"
 )end)end},
 
 
-cm={aU="Focus",bu=jp(
+  cm={aU="Focus",bu=jp(
 jT,jR,function(ye,yf,yg,yh)return
 jk(yf.q.cx,kT.bC)end),bw=464,aZ
 ="Unit with ranged attack gets +1 range"
@@ -1428,7 +1551,7 @@ ym=ro:N(yk,yl)je=kt(yj,ym,"FOCUS"
 ,yj)end)end},
 
 
-cq={aU="Fury",bu=jp
+  cq={aU="Fury",bu=jp
 (jT,jR,function(yn,yo,yp,yq)return
 yo.q.cy~=null end),bw=464,aZ="Unit gets +1 attack"
 ,by=function(yr,ys,yt,yu)local yw
@@ -1446,19 +1569,26 @@ true,function()yw:A(kS.bp)kQ(yr
 
 
 
-function kU(yx,yy,
-yz)if yz==ji.e then sfx(1,45,30)end
-yx.onClose=yy yx.cols=yz local yA=
-0 for yG=1,#yx do local yH=print(yx[
-yG],0,-20,14)//2 if yH>yA then yA=yH
-end end local yB=(#yx*7)//2 local yC
-=yA*2+10 local yD=(yB*2)+10 local yE
-=88-yA-5 local yF=60-yB je=jC(function
-(yI,yJ,yK)rect(jo(88,yE,yJ),yF*
-yJ,yC*yJ,yD*yJ,yz[1])rectb(jo(88
-,yE,yJ)+1,yF*yJ+1,yC*yJ-2,yD*yJ
--2,yz[2])end,30,jx,function()jd
-=yx end)end 
+function kU(yx,yy,yz)
+  if yz==ji.e then 
+    sfx(1,45,30)
+  end
+  yx.onClose=yy 
+  yx.cols=yz 
+  local yA=0 
+  for yG=1,#yx do 
+    local yH=print(yx[yG],0,-20,14)//2 
+    if yH>yA then 
+      yA=yH 
+    end 
+  end 
+  local yB=(#yx*7)//2 
+  local yC=yA*2+10 
+  local yD=(yB*2)+10 
+  local yE=88-yA-5 
+  local yF=60-yB 
+  je=jC(function(yI,yJ,yK) rect(jo(88,yE,yJ),yF*yJ,yC*yJ,yD*yJ,yz[1]) rectb(jo(88,yE,yJ)+1,yF*yJ+1,yC*yJ-2,yD*yJ-2,yz[2]) end, 30, jx, function()jd=yx end)
+end
 
 
 
@@ -1580,10 +1710,12 @@ kY={cu={aU="Soldier",    aX=258,bg=6,z=7, cx={kT.bs,kT.bz},cy=jj(2,4),          
        H=kX},
 
 
-      {dR=84,dS=17,dT={"#8 EVEN MORE SKELETONS!","","They have some kobolds too!","Keep the mage out of their","range!"},
-      ec={kY.cX,0,3,kY.cu,1,3,kY.cu,1,4,kY.cC,1,6,kY.cC,1,2,kY.cC,2,7,},
-      ed={kY.dx,10,4,kY.dH,10,3,kY.dx,9,4,kY.dx,10,5,kY.dx,10,2,kY.dx,9,2,kY.dx,10,6,kY.dx,9,3,kY.dH,9,5,},
-      H=kX},
+      {dR=84,
+       dS=17,
+       dT={"#8 EVEN MORE SKELETONS!","","They have some kobolds too!","Keep the mage out of their","range!"},
+       ec={kY.cX,0,3,kY.cu,1,3,kY.cu,1,4,kY.cC,1,6,kY.cC,1,2,kY.cC,2,7,},
+       ed={kY.dx,10,4,kY.dH,10,3,kY.dx,9,4,kY.dx,10,5,kY.dx,10,2,kY.dx,9,2,kY.dx,10,6,kY.dx,9,3,kY.dH,9,5,},
+       H=kX},
 
 
      {dR=96,
@@ -1594,27 +1726,35 @@ kY={cu={aU="Soldier",    aX=258,bg=6,z=7, cx={kT.bs,kT.bz},cy=jj(2,4),          
       H=kW},
 
 
-     {dR=108,dS=17,dT={"#10 THE LICHKING","","Here's the source of all","those skeletons! A Lichking","has arrived to the village!","","Be quick to take it down as","he can summon more skeletons!"},
+     {dR=108,
+      dS=17,
+      dT={"#10 THE LICHKING","","Here's the source of all","those skeletons! A Lichking","has arrived to the village!","","Be quick to take it down as","he can summon more skeletons!"},
       ec={kY.cC,1,3,kY.dn,0,4,kY.cu,1,4,kY.dF,0,3,kY.cu,0,5,},
       ed={kY.dJ,9,4,kY.dx,9,3,kY.dx,9,5,},
       H=kX},
 
 
 
-    {dR=120,dS=17,dT={"#11 BRUTE ENCOUNTER","","On the way back to the","village, the fellowship has","to cross a mountain pass.","","Brutes inhabit the area,","Be careful as they're pretty","tough!","","A solitary monk living there","can provide some help!"},
+    {dR=120,
+     dS=17,
+     dT={"#11 BRUTE ENCOUNTER","","On the way back to the","village, the fellowship has","to cross a mountain pass.","","Brutes inhabit the area,","Be careful as they're pretty","tough!","","A solitary monk living there","can provide some help!"},
      ec={kY.cC,1,3,kY.dn,0,4,kY.dq,1,1,kY.cu,1,4,kY.cu,0,5,},
      ed={kY.cZ,8,4,kY.cZ,9,3,kY.cZ,10,5,kY.cZ,10,4,},
      H=kX},
 
 
 
-   {dR=132,dS=17,dT={"#12 UH OH!","","A couple of Kobolds ambushed","your team! And some other","thugs are joining the party!","","This is a tough one, plan","carefully and exploit the","wizard!"},
+   {dR=132,
+    dS=17,
+    dT={"#12 UH OH!","","A couple of Kobolds ambushed","your team! And some other","thugs are joining the party!","","This is a tough one, plan","carefully and exploit the","wizard!"},
     ec={kY.cX,1,3,kY.dF,0,4,kY.dq,0,3,kY.cu,1,4,kY.cu,0,5,},
     ed={kY.dH,8,4,kY.dH,8,3,kY.dz,10,5,kY.dz,10,4,kY.cZ,10,1,kY.cZ,7,7,},
     H=kX},
 
 
-   {dR=144,dS=17,dT={"#13 DWARF RESQUE","","A dwarf has been attacked","by a bunch of Kobolds!","","Perhaps if we resque him","he may help us later.","","Try to save him in the first","turns as he's indispensable","to defeat all those enemies!"},
+   {dR=144,
+    dS=17,
+    dT={"#13 DWARF RESQUE","","A dwarf has been attacked","by a bunch of Kobolds!","","Perhaps if we resque him","he may help us later.","","Try to save him in the first","turns as he's indispensable","to defeat all those enemies!"},
     ec={kY.cX,1,2,kY.dF,2,2,kY.cu,1,3,kY.cu,0,4,kY.dj,7,4,},
     ed={kY.dH,8,4,kY.dH,7,3,kY.dH,7,5,kY.dH,10,5,kY.dz,10,4,},
     H=kX},
@@ -1644,30 +1784,42 @@ kY={cu={aU="Soldier",    aX=258,bg=6,z=7, cx={kT.bs,kT.bz},cy=jj(2,4),          
       H=kX},
 
 
-     {dR=192,dS=17,dT={"#17 SEARCHING FOR HELP","","The village destroyed, you","have to rally some forces..","You try and head for a","nearby monastry, where a","different kind of monks","dwells. The fighting kind!","","Beat them to earn their","respect and loyalty!"},
+     {dR=192,
+      dS=17,
+      dT={"#17 SEARCHING FOR HELP","","The village destroyed, you","have to rally some forces..","You try and head for a","nearby monastry, where a","different kind of monks","dwells. The fighting kind!","","Beat them to earn their","respect and loyalty!"},
       ec={kY.cu,2,2,kY.dj,2,4,kY.dq,1,4,kY.cX,1,3,},ed={kY.du,7,4,kY.du,8,3,kY.du,9,5,kY.du,8,5,},
       H=kX},
 
 
-     {dR=204,dS=17,dT={"#18 SURROUNDED BY BRUTES","","Wow, those kids were fast","as lighting! Good that we","won their respect!","","Looks like some brutes are","trying to surround us.","Teach em a lesson."},
+     {
+      dR=204,
+      dS=17,
+      dT={"#18 SURROUNDED BY BRUTES","","Wow, those kids were fast","as lighting! Good that we","won their respect!","","Looks like some brutes are","trying to surround us.","Teach em a lesson."},
       ec={kY.cu,4,2,kY.du,5,4,kY.du,6,4,kY.cX,5,3,kY.dq,5,5},
       ed={kY.cZ,4,0,kY.cZ,9,3,kY.cZ,8,4,kY.cZ,9,5,kY.cZ,8,6,kY.cZ,0,5,kY.cZ,0,6,},
       H=kX},
 
 
-    {dR=216,dS=17,dT={"#19 CYCLOPS","","Uh oh, looks who's there..","Those guys are pretty","big and strong.","","Luckly the Shaolin are","fast enought to sting and","back off."},
+    {
+     dR=216,
+     dS=17,
+     dT={"#19 CYCLOPS","","Uh oh, looks who's there..","Those guys are pretty","big and strong.","","Luckly the Shaolin are","fast enought to sting and","back off."},
      ec={kY.cu,4,2,kY.du,5,4,kY.du,6,4,kY.cX,5,3,},
      ed={kY.db,9,3,kY.db,8,4,kY.dD,8,6,kY.dD,0,5,kY.dD,0,6,},
      H=kX},
 
-    {dR=228,dS=17,dT={"#20 CALL IN THE PALADIN","","We arrived at the remote","retire of a powerfull paladin.","","If we can get past all those","monsters, and if we can find","him maybe we can hire him!"},
+    {dR=228,
+     dS=17,
+     dT={"#20 CALL IN THE PALADIN","","We arrived at the remote","retire of a powerfull paladin.","","If we can get past all those","monsters, and if we can find","him maybe we can hire him!"},
      ec={kY.cu,1,3,kY.du,1,4,kY.dF,0,4,kY.dl,0,3,kY.cC,0,2,kY.cX,0,5,kY.dq,1,6,},
      ed={kY.db,9,3,kY.db,8,4,kY.dD,9,6,kY.db,10,6,kY.dL,7,1,kY.dL,8,1,kY.dL,8,2,kY.dL,9,5,kY.dL,10,3,kY.dB,8,3,kY.dH,9,4,},
      H=kW},
 
 
 
-    {dR=0,dS=26,dT={"#21 TO THE KING","","With the paladin on our side","we'll be able to get the King","attention and involvement!","","It looks like the castle is","sieged too!"},
+    {dR=0,
+    dS=26,
+    dT={"#21 TO THE KING","","With the paladin on our side","we'll be able to get the King","attention and involvement!","","It looks like the castle is","sieged too!"},
     ec={kY.cu,1,3,kY.cz,1,4,kY.cu,1,5,kY.dj,0,4,kY.cC,1,6,},
     ed={kY.dz,9,3,kY.dz,8,4,kY.dH,8,2,kY.dH,10,3,kY.dL,7,1,kY.dL,8,1,kY.dD,5,7,kY.dD,4,7,},
     H=kX},
@@ -1690,7 +1842,9 @@ kY={cu={aU="Soldier",    aX=258,bg=6,z=7, cx={kT.bs,kT.bz},cy=jj(2,4),          
 
 
 
-    {dR=36,dS=26,dT={"#24 WITCHY WITCH","","The witch joins the battle.","Sure she'll be useful, but","you're not sure you like her.","","She need to reach a magical","well where she can perform a","divination and locate the","monsters source.","","We're kind of surrounded here,","Power up those elves and","resist the assault!"},
+    {dR=36,
+     dS=26,
+     dT={"#24 WITCHY WITCH","","The witch joins the battle.","Sure she'll be useful, but","you're not sure you like her.","","She need to reach a magical","well where she can perform a","divination and locate the","monsters source.","","We're kind of surrounded here,","Power up those elves and","resist the assault!"},
      ec={kY.dh,0,0,kY.cC,1,0,kY.cu,1,2,kY.cC,0,2,kY.dn,1,1,kY.ds,0,1,},
      ed={kY.cZ,8,4,kY.cZ,9,5,kY.cZ,10,5,kY.cZ,6,2,kY.dL,8,3,kY.dL,7,7,kY.db,9,3,kY.dz,7,3,kY.dz,5,6,kY.dD,7,4,},
      H=kX},
