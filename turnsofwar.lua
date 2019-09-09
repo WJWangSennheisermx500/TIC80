@@ -6,22 +6,7 @@
 -- saveid: turnsofwar
 
 
--- Hi there :) Thanks for playing my
--- game!
--- Sorry for the obfuscated sources
--- but i don't like being copied..
--- if you have any question on the
--- workings feel free to contact me!
--- Reach me on the TIC80 discord!
--- Don't forget to "like" the game
--- on https://tic.computer/play
--- msx80 @ twitter
 
--- Gfx by Stavros: 
--- eliacoan @ twitter
--- "Go with the flow"
-
--- Sfx and Music by Fubuki
 
 iS=true 
 iT=0
