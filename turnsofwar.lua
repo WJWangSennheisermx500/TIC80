@@ -624,7 +624,7 @@ function ka(pQ,pR,pS,pT,pU)
   table.insert(jb,{r=pQ,s=pR,ac=pS,ad=pT,ae=pU})
 end 
 
-function kb(pW,pX,pY,pZ,qa)
+function kb(pW,pX,pY,pZ,qa)              --似乎跟按钮有关
   local qb=4+print(pY,0,-10,15,false,1,true)
   local qc=8+2 rect(pW,pX,qb,qc,6)
   line(pW,pX,pW+qb-2,pX,12)
@@ -1254,15 +1254,35 @@ end
 
 
 
-function kK()local uZ=ro:U(ro.
-I)for wa=1,#uZ do local wb=uZ[wa]wb
-.w=kA(ro:Z(wb))end for wc=1,#uZ do
-local wd=uZ[wc]if kJ(wd)then return
-end end for we=1,#uZ do local wf=uZ[we
-]if wf.w[kT.bz]then kG(wf)return end
-if wf.w[kT.bC]then kH(wf)return end
-end for wg=1,#uZ do local wh=uZ[wg]if
-wh.w[kT.bs]then kI(wh)return end end
+function kK()
+  local uZ=ro:U(ro.I)
+    for wa=1,#uZ do 
+      local wb=uZ[wa]wb.w=kA(ro:Z(wb))
+    end 
+    for wc=1,#uZ do 
+      local wd=uZ[wc]
+      if kJ(wd)then 
+        return
+      end 
+    end 
+    for we=1,#uZ do 
+      local wf=uZ[we]
+      if wf.w[kT.bz] then 
+        kG(wf)
+        return 
+      end
+      if wf.w[kT.bC] then 
+        kH(wf)
+        return 
+      end
+    end 
+    for wg=1,#uZ do 
+      local wh=uZ[wg]
+      if wh.w[kT.bs] then 
+        kI(wh)
+        return 
+      end 
+    end
 end 
 
 
