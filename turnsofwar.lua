@@ -1279,15 +1279,29 @@ end
 
 
 
-function kM()for wl,
-wm in pairs(ro.L)do if wl<0 then local
-wn=-wl for wo=0,8 do local wp=ro:N(wn
-,wo)if wp and wp.t==0 then local wq=ro
-.L[wl]ro.L[wl]=nil wq()return end
-end else local wr,ws=js(wl)local wt
-=ro:N(wr,ws)if wt and wt.t==0 then local
-wu=ro.L[wl]ro.L[wl]=nil wu()return
-end end end end 
+function kM()
+  for wl,wm in pairs(ro.L)do 
+    if wl<0 then 
+      local wn=-wl 
+      for wo=0,8 do 
+        local wp=ro:N(wn,wo)
+        if wp and wp.t==0 then 
+          local wq=ro.L[wl]ro.L[wl]=nil wq()
+          return 
+        end
+      end 
+    else 
+      local wr,ws=js(wl)
+      local wt=ro:N(wr,ws)
+      if wt and wt.t==0 then 
+        local wu=ro.L[wl]
+        ro.L[wl]=nil 
+        wu()
+        return
+      end 
+    end 
+  end 
+end 
 
 
 
