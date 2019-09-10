@@ -1535,9 +1535,11 @@ kT={
       bw=464,
       aZ="Tranform a tomb into a Skeleton",
       by=function(xK,xL,xM,xN)
-             local xO=ro:N(xM,xN)je=kt(xL,xO,"RAISE",true,function()ro:T(xO,kY.dx,xL
-.t)kQ(xK,xL)end)end,bU=function
-(xP,xQ,xR)return true end},
+             local xO=ro:N(xM,xN)
+             je=kt(xL,xO,"RAISE",true,function() ro:T(xO,kY.dx,xL.t) kQ(xK,xL)end)
+          end,
+      bU=function(xP,xQ,xR) return true end
+      },
 
 
   ce={
@@ -1552,32 +1554,42 @@ kT={
       },
 
 
-  ci={aU="Haste",bu=jp(jT,jR
-,jU),bw=464,aZ="Give 2 free move actions to unspent friend"
-,y=2,by=function(xY,xZ,ya,yb)local
-yc=ro:N(ya,yb)je=kt(xZ,yc,"HASTE"
-,true,function()local yd=yc.x[kT
-.bs]or 0 yc.x[kT.bs]=yd+2 kQ(xY,xZ
-)end)end},
+  ci={aU="Haste",
+      bu=jp(jT,jR,jU),
+      bw=464,
+      aZ="Give 2 free move actions to unspent friend",
+      y=2,
+      by=function(xY,xZ,ya,yb)
+            local yc=ro:N(ya,yb)
+            je=kt(xZ,yc,"HASTE",true,function() 
+                                    local yd=yc.x[kT.bs] or 0 
+                                    yc.x[kT.bs]=yd+2 
+                                    kQ(xY,xZ)
+                                  end)
+          end
+        },
 
 
-  cm={aU="Focus",bu=jp(
-jT,jR,function(ye,yf,yg,yh)return
-jk(yf.q.cx,kT.bC)end),bw=464,aZ
-="Unit with ranged attack gets +1 range"
-,y=2,by=function(yi,yj,yk,yl)local
-ym=ro:N(yk,yl)je=kt(yj,ym,"FOCUS"
-,true,function()ym:A(kS.bm)kQ(yi
-,yj)end)end},
+  cm={aU="Focus",
+      bu=jp(jT,jR,function(ye,yf,yg,yh)return jk(yf.q.cx,kT.bC) end),
+      bw=464,
+      aZ="Unit with ranged attack gets +1 range",
+      y=2,
+      by=function(yi,yj,yk,yl)
+             local ym=ro:N(yk,yl)
+             je=kt(yj,ym,"FOCUS",true,function()ym:A(kS.bm)kQ(yi,yj)end)
+          end
+        },
 
 
-  cq={aU="Fury",bu=jp
-(jT,jR,function(yn,yo,yp,yq)return
-yo.q.cy~=null end),bw=464,aZ="Unit gets +1 attack"
-,by=function(yr,ys,yt,yu)local yw
-=ro:N(yt,yu)je=kt(ys,yw,"FURY",
-true,function()yw:A(kS.bp)kQ(yr
-,ys)end)end},
+  cq={aU="Fury",
+  bu=jp(jT,jR,function(yn,yo,yp,yq)returnyo.q.cy~=null end),
+  bw=464,aZ="Unit gets +1 attack",
+  by=function(yr,ys,yt,yu) 
+               local yw=ro:N(yt,yu)
+               je=kt(ys,yw,"FURY",true,function()yw:A(kS.bp)kQ(yr,ys)end)
+      end
+     },
 
 
 
