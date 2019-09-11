@@ -1583,9 +1583,9 @@ kT={
 
 
   cq={aU="Fury",
-  bu=jp(jT,jR,function(yn,yo,yp,yq)returnyo.q.cy~=null end),
-  bw=464,aZ="Unit gets +1 attack",
-  by=function(yr,ys,yt,yu) 
+      bu=jp(jT,jR,function(yn,yo,yp,yq)returnyo.q.cy~=null end),
+      bw=464,aZ="Unit gets +1 attack",
+      by=function(yr,ys,yt,yu) 
                local yw=ro:N(yt,yu)
                je=kt(ys,yw,"FURY",true,function()yw:A(kS.bp)kQ(yr,ys)end)
       end
